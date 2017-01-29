@@ -1,0 +1,113 @@
+diff --git a/config.def.h b/config.def.h
+index ceda9f7..272074a 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -29,30 +29,30 @@ static Bool npisrelative  = False;
+ 
+ #define MODKEY ControlMask
+ static Key keys[] = { \
+-	/* modifier                     key        function        argument */
+-	{ MODKEY|ShiftMask,             XK_Return, focusonce,      { 0 } },
+-	{ MODKEY|ShiftMask,             XK_Return, spawn,          { 0 } },
+-	{ MODKEY,                       XK_t,      spawn,          SETPROP("_TABBED_SELECT_TAB") },
+-
+-	{ MODKEY|ShiftMask,             XK_l,      rotate,         { .i = +1 } },
+-	{ MODKEY|ShiftMask,             XK_h,      rotate,         { .i = -1 } },
+-	{ MODKEY|ShiftMask,             XK_j,      movetab,        { .i = -1 } },
+-	{ MODKEY|ShiftMask,             XK_k,      movetab,        { .i = +1 } },
+-	{ MODKEY,                       XK_Tab,    rotate,         { .i = 0 } },
+-
+-	{ MODKEY,                       XK_1,      move,           { .i = 0 } },
+-	{ MODKEY,                       XK_2,      move,           { .i = 1 } },
+-	{ MODKEY,                       XK_3,      move,           { .i = 2 } },
+-	{ MODKEY,                       XK_4,      move,           { .i = 3 } },
+-	{ MODKEY,                       XK_5,      move,           { .i = 4 } },
+-	{ MODKEY,                       XK_6,      move,           { .i = 5 } },
+-	{ MODKEY,                       XK_7,      move,           { .i = 6 } },
+-	{ MODKEY,                       XK_8,      move,           { .i = 7 } },
+-	{ MODKEY,                       XK_9,      move,           { .i = 8 } },
+-	{ MODKEY,                       XK_0,      move,           { .i = 9 } },
+-
+-	{ MODKEY,                       XK_q,      killclient,     { 0 } },
+-
+-	{ 0,                            XK_F11,    fullscreen,     { 0 } },
++	/* modifier                  key    function        argument */
++	{ MODKEY|ShiftMask,          36,    focusonce,      { 0 } },      // Return
++	{ MODKEY|ShiftMask,          36,    spawn,          { 0 } },      // Return
++	{ MODKEY,                    44,    spawn,          SETPROP("_TABBED_SELECT_TAB") }, // t
++
++	{ MODKEY|ShiftMask,          46,   rotate,         { .i = +1 } }, // l
++	{ MODKEY|ShiftMask,          43,   rotate,         { .i = -1 } }, // h
++	{ MODKEY|ShiftMask,          44,   movetab,        { .i = -1 } }, // j
++	{ MODKEY|ShiftMask,          45,   movetab,        { .i = +1 } }, // k
++	{ MODKEY,                    23,   rotate,         { .i = 0 } },  // Tab
++
++	{ MODKEY,                    10,   move,           { .i = 0 } },  // 1
++	{ MODKEY,                    11,   move,           { .i = 1 } },  // 2
++	{ MODKEY,                    12,   move,           { .i = 2 } },  // 3
++	{ MODKEY,                    13,   move,           { .i = 3 } },  // 4
++	{ MODKEY,                    14,   move,           { .i = 4 } },  // 5
++	{ MODKEY,                    15,   move,           { .i = 5 } },  // 6
++	{ MODKEY,                    16,   move,           { .i = 6 } },  // 7
++	{ MODKEY,                    17,   move,           { .i = 7 } },  // 8
++	{ MODKEY,                    18,   move,           { .i = 8 } },  // 9
++	{ MODKEY,                    19,   move,           { .i = 9 } },  // 0
++
++	{ MODKEY,                    24,   killclient,     { 0 } },       // q
++
++	{ 0,                         95,   fullscreen,     { 0 } },       // F11
+ };
+ 
+diff --git a/tabbed.c b/tabbed.c
+index d30206b..15d6572 100644
+--- a/tabbed.c
++++ b/tabbed.c
+@@ -57,7 +57,7 @@ typedef union {
+ 
+ typedef struct {
+ 	unsigned int mod;
+-	KeySym keysym;
++	KeyCode keycode;
+ 	void (*func)(const Arg *);
+ 	const Arg arg;
+ } Key;
+@@ -644,11 +644,9 @@ void
+ keypress(const XEvent *e) {
+ 	const XKeyEvent *ev = &e->xkey;
+ 	unsigned int i;
+-	KeySym keysym;
+ 
+-	keysym = XkbKeycodeToKeysym(dpy, (KeyCode)ev->keycode, 0, 0);
+ 	for(i = 0; i < LENGTH(keys); i++) {
+-		if(keysym == keys[i].keysym
++		if(ev->keycode == keys[i].keycode
+ 				&& CLEANMASK(keys[i].mod) == CLEANMASK(ev->state)
+ 				&& keys[i].func) {
+ 			keys[i].func(&(keys[i].arg));
+@@ -684,7 +682,6 @@ manage(Window w) {
+ 		int i, j, nextpos;
+ 		unsigned int modifiers[] = { 0, LockMask, numlockmask,
+ 			numlockmask|LockMask };
+-		KeyCode code;
+ 		Client *c;
+ 		XEvent e;
+ 
+@@ -695,13 +692,11 @@ manage(Window w) {
+ 		XSync(dpy, False);
+ 
+ 		for(i = 0; i < LENGTH(keys); i++) {
+-			if((code = XKeysymToKeycode(dpy, keys[i].keysym))) {
+-				for(j = 0; j < LENGTH(modifiers); j++) {
+-					XGrabKey(dpy, code, keys[i].mod
+-							| modifiers[j], w,
+-						 True, GrabModeAsync,
+-						 GrabModeAsync);
+-				}
++			for(j = 0; j < LENGTH(modifiers); j++) {
++				XGrabKey(dpy, keys[i].keycode, keys[i].mod
++						| modifiers[j], w,
++					 True, GrabModeAsync,
++					 GrabModeAsync);
+ 			}
+ 		}
+ 
