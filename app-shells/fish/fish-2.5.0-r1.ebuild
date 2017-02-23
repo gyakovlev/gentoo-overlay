@@ -23,7 +23,7 @@ DEPEND="
 	nls? ( sys-devel/gettext )
 "
 src_prepare() {
-	eapply "${FILESDIR}/${PN}-linguas.patch"
+	eapply "${FILESDIR}/${P}-honor-linguas.patch"
 	default
 }
 
