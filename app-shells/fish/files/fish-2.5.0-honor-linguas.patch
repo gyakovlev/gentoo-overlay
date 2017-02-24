@@ -1,5 +1,5 @@
 diff --git a/Makefile.in b/Makefile.in
-index 35e63ae..3a5cd2e 100644
+index 35e63ae..b73c612 100644
 --- a/Makefile.in
 +++ b/Makefile.in
 @@ -195,11 +195,16 @@ ifeq ($(shell uname), Darwin)
@@ -21,3 +21,12 @@ index 35e63ae..3a5cd2e 100644
  else
  	TRANSLATIONS :=
  endif
+@@ -764,7 +769,7 @@ uninstall: uninstall-translations | show-prefix show-bindir show-sysconfdir show
+ .PHONY: uninstall
+ 
+ install-translations: $(TRANSLATIONS) | show-HAVE_GETTEXT
+-ifdef HAVE_GETTEXT
++ifeq ($(HAVE_GETTEXT), 1)
+ 	@echo "Installing translations..."
+ 	$v for i in $(TRANSLATIONS); do \
+ 		$(INSTALL) -m 755 -d $(DESTDIR)$(localedir)/`basename $$i .gmo`/LC_MESSAGES; \
