@@ -33,9 +33,9 @@ src_configure() {
 	# Also, all of its utilities have to be in /bin.
 	econf \
 		docdir="${EPREFIX}"/usr/share/doc/${PF} \
-		$(use_with nls gettext) \
 		--bindir="${EPREFIX}"/bin \
-		--without-included-pcre2
+		--without-included-pcre2 \
+        $(use_with nls gettext)
 }
 
 src_test() {
