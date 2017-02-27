@@ -35,7 +35,7 @@ src_configure() {
 		docdir="${EPREFIX}"/usr/share/doc/${PF} \
 		--bindir="${EPREFIX}"/bin \
 		--without-included-pcre2 \
-        $(use_with nls gettext)
+		$(use_with nls gettext)
 }
 
 src_test() {
