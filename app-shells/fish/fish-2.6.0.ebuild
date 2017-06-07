@@ -6,7 +6,7 @@ EAPI=6
 
 DESCRIPTION="fish is the Friendly Interactive SHell"
 HOMEPAGE="http://fishshell.com/"
-SRC_URI="http://fishshell.com/files/${PV}/${P}.tar.gz"
+SRC_URI="https://github.com/${PN}-shell/${PN}-shell/releases/download/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,10 +22,6 @@ DEPEND="
 	sys-devel/bc
 	nls? ( sys-devel/gettext )
 "
-src_prepare() {
-	eapply "${FILESDIR}/${P}-honor-linguas.patch"
-	default
-}
 
 src_configure() {
 	# Set things up for fish to be a default shell.
