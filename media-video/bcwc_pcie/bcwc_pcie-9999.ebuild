@@ -11,6 +11,7 @@ HOMEPAGE="https://github.com/patjak/bcwc_pcie"
 SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/patjak/bcwc_pcie"
+EGIT_BRANCH="mainline"
 
 LICENSE=""
 SLOT="0"
