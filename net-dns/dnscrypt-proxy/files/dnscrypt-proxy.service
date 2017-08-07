@@ -1,13 +1,18 @@
 [Unit]
-Description=A tool for securing communications between a client and a DNS resolver
+Description=DNSCrypt client proxy
+Documentation=man:dnscrypt-proxy(8)
+Requires=dnscrypt-proxy.socket
+After=network.target
+Before=nss-lookup.target
+
+[Install]
+Also=dnscrypt-proxy.socket
+WantedBy=multi-user.target
 
 [Service]
 Type=simple
-PIDFile=/var/run/dnscrypt-proxy.pid
-EnvironmentFile=/etc/conf.d/dnscrypt-proxy
-ExecStartPre=/bin/rm -f /var/run/dnscrypt-proxy.pid
-ExecStart=/usr/sbin/dnscrypt-proxy --user=${DNSCRYPT_OPTS}
-Restart=on-abort
+NonBlocking=true
 
-[Install]
-WantedBy=multi-user.target
+# Edit the configuration file appropriately, or the service will not start.
+# See https://dnscrypt.org for more information.
+ExecStart=/usr/sbin/dnscrypt-proxy /etc/dnscrypt-proxy.conf

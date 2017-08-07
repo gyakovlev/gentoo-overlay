@@ -46,6 +46,16 @@ src_install() {
 	newinitd "${FILESDIR}"/${PN}.initd ${PN}
 	newconfd "${FILESDIR}"/${PN}.confd ${PN}
 	systemd_dounit "${FILESDIR}"/${PN}.service
+	systemd_dounit "${FILESDIR}"/${PN}.socket
+	insinto /etc
+	doins "${FILESDIR}"/${PN}.conf /etc
+}
+
+pkg_preinst() {
+	# ship working default configuration for systemd users
+	if use systemd; then
+		sed -i 's/Daemonize yes/Daemonize no/g' "${D}"/etc/${PN}.conf
+	fi
 }
 
 pkg_postinst() {
@@ -54,9 +64,12 @@ pkg_postinst() {
 	elog "with:"
 	elog
 	elog "nameserver <ip address>"
+	elog "options edns0"
 	elog
 	elog "where <ip address> is what you supplied in"
 	elog "/etc/dnscrypt-proxy.conf, default is \"127.0.0.1\"."
+	use systemd && elog "with systemd dnscrypt-proxy ignores LocalAddress"
+	use systemd && elog "in the config file. edit dnscrypt-proxy.socket instead"
 	elog
 	elog "Also see https://github.com/jedisct1/dnscrypt-proxy#usage."
 }
