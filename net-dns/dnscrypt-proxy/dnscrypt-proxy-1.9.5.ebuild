@@ -63,13 +63,10 @@ pkg_postinst() {
 	elog "/etc/resolv.conf and replace your current set of resolvers"
 	elog "with:"
 	elog
-	elog "nameserver <ip address>"
-	elog "options edns0"
+	elog "nameserver 127.0.0.1"
 	elog
-	elog "where <ip address> is what you supplied in"
-	elog "/etc/dnscrypt-proxy.conf, default is \"127.0.0.1\"."
-	use systemd && elog "with systemd dnscrypt-proxy ignores LocalAddress"
-	use systemd && elog "in the config file. edit dnscrypt-proxy.socket instead"
+	use systemd && elog "with systemd dnscrypt-proxy ignores LocalAddress setting in the config file"
+	use systemd && elog "edit dnscrypt-proxy.socket if you need to change the defaults"
 	elog
 	elog "Also see https://github.com/jedisct1/dnscrypt-proxy#usage."
 }
