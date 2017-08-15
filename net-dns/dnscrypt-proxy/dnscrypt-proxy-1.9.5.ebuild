@@ -25,8 +25,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-DOCS="AUTHORS ChangeLog NEWS README* THANKS *txt"
-
 pkg_setup() {
 	enewgroup dnscrypt
 	enewuser dnscrypt -1 -1 /var/empty dnscrypt
@@ -41,6 +39,8 @@ src_configure() {
 }
 
 src_install() {
+	local DOCS=( AUTHORS ChangeLog NEWS README* THANKS *txt )
+
 	default
 
 	newinitd "${FILESDIR}"/${PN}.initd-r1 ${PN}
