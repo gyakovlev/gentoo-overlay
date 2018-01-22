@@ -7,7 +7,7 @@ inherit flag-o-matic
 
 DESCRIPTION="Fast,fuzzy text selector with an advanced scoring algorithm."
 HOMEPAGE="https://github.com/jhawthorn/fzy"
-SRC_URI="https://github.com/jhawthorn/fzy/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/jhawthorn/fzy/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
