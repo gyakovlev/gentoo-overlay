@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -22,10 +22,10 @@ FILECAPS=( cap_net_bind_service+ep usr/bin/dnscrypt-proxy )
 
 S="${WORKDIR}/${MY_P}"
 
-pkg_setup() {
-		enewgroup dnscrypt
-		enewuser dnscrypt -1 -1 /var/empty dnscrypt
-}
+#pkg_setup() {
+#		enewgroup dnscrypt
+#		enewuser dnscrypt -1 -1 /var/empty dnscrypt
+#}
 
 src_prepare() {
 	default
@@ -60,7 +60,7 @@ src_install() {
 	newins "${S}/src/${PN}"/example-dnscrypt-proxy.toml dnscrypt-proxy.toml
 	doins "${S}/src/${PN}"/example-{blacklist.txt,cloaking-rules.txt,forwarding-rules.txt}
 
-	sed -i "s:/opt/dnscrypt-proxy/dnscrypt-proxy:/usr/bin/dnscrypt-proxy --config /etc/dnscrypt-proxy/dnscrypt-proxy.toml:" \
+	sed -i "s:/opt/dnscrypt-proxy/dnscrypt-proxy:${EROOT}usr/bin/dnscrypt-proxy --config /etc/dnscrypt-proxy/dnscrypt-proxy.toml:" \
 		"${S}/systemd/dnscrypt-proxy.service" || die
 
 	systemd_dounit "${S}/systemd/dnscrypt-proxy.service"
