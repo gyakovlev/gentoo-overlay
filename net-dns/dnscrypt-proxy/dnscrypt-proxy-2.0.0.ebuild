@@ -19,30 +19,14 @@ fi
 LICENSE="ISC"
 SLOT="0"
 
+IUSE="systemd"
+
 FILECAPS=( cap_net_bind_service+ep usr/bin/dnscrypt-proxy )
 
 #pkg_setup() {
 #		enewgroup dnscrypt
 #		enewuser dnscrypt -1 -1 /var/empty dnscrypt
 #}
-
-src_prepare() {
-	default
-
-	cd "${S}/${PN}" || die
-	sed -i 's|\['\''127\.0\.0\.1:53'\'', '\''\[::1\]:53'\''\]|\[\]|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''dnscrypt-proxy\.log'\''|'\''/var/log/dnscrypt-proxy/dnscrypt-proxy\.log'\''|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''forwarding-rules\.txt'\''|'\''/etc/dnscrypt-proxy/forwarding-rules\.txt'\''|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''cloaking-rules\.txt'\''|'\''/etc/dnscrypt-proxy/cloaking-rules\.txt'\''|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''query\.log'\''|'\''/var/log/dnscrypt-proxy/query\.log'\''|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''nx\.log'\''|'\''/var/log/dnscrypt-proxy/nx\.log'\''|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''blacklist\.txt'\''|'\''/etc/dnscrypt-proxy/blacklist\.txt'\''|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''blocked\.log'\''|'\''/var/log/dnscrypt-proxy/blocked\.log'\''|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''ip-blacklist\.txt'\''|'\''/etc/dnscrypt-proxy/ip-blacklist\.txt'\''|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''ip-blocked\.log'\''|'\''/var/log/dnscrypt-proxy/ip-blocked\.log'\''|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''public-resolvers\.md'\''|'\''/var/cache/dnscrypt-proxy/public-resolvers\.md'\''|g' example-dnscrypt-proxy.toml || die
-	sed -i 's|'\''parental-control\.md'\''|'\''/var/cache/dnscrypt-proxy/parental-control\.md'\''|g' example-dnscrypt-proxy.toml || die
-}
 
 src_compile() {
 	# Create directory structure suitable for building
@@ -58,6 +42,26 @@ src_install() {
 
 	dobin dnscrypt-proxy
 
+	if use systemd; then
+		sed -i -e \
+			's|\['\''127\.0\.0\.1:53'\'', '\''\[::1\]:53'\''\]|\[\]|g' \
+			"src/${EGO_PN}"/example-dnscrypt-proxy.toml || die "sed failed"
+	fi
+
+	sed -i \
+		-e 's|'\''nx\.log'\''|'\''/var/log/dnscrypt-proxy/nx\.log'\''|g' \
+		-e 's|'\''query\.log'\''|'\''/var/log/dnscrypt-proxy/query\.log'\''|g' \
+		-e 's|'\''blacklist\.txt'\''|'\''/etc/dnscrypt-proxy/blacklist\.txt'\''|g' \
+		-e 's|'\''blocked\.log'\''|'\''/var/log/dnscrypt-proxy/blocked\.log'\''|g' \
+		-e 's|'\''ip-blacklist\.txt'\''|'\''/etc/dnscrypt-proxy/ip-blacklist\.txt'\''|g' \
+		-e 's|'\''ip-blocked\.log'\''|'\''/var/log/dnscrypt-proxy/ip-blocked\.log'\''|g' \
+		-e 's|'\''cloaking-rules\.txt'\''|'\''/etc/dnscrypt-proxy/cloaking-rules\.txt'\''|g' \
+		-e 's|'\''dnscrypt-proxy\.log'\''|'\''/var/log/dnscrypt-proxy/dnscrypt-proxy\.log'\''|g' \
+		-e 's|'\''forwarding-rules\.txt'\''|'\''/etc/dnscrypt-proxy/forwarding-rules\.txt'\''|g' \
+		-e 's|'\''public-resolvers\.md'\''|'\''/var/cache/dnscrypt-proxy/public-resolvers\.md'\''|g' \
+		-e 's|'\''parental-control\.md'\''|'\''/var/cache/dnscrypt-proxy/parental-control\.md'\''|g' \
+			"src/${EGO_PN}"/example-dnscrypt-proxy.toml || die "sed failed"
+
 	insinto /etc/${PN}
 	newins "src/${EGO_PN}"/example-dnscrypt-proxy.toml dnscrypt-proxy.toml
 	doins "src/${EGO_PN}"/example-{blacklist.txt,cloaking-rules.txt,forwarding-rules.txt}
@@ -71,11 +75,14 @@ src_install() {
 		systemd/dnscrypt-proxy.service || die "sed failed"
 
 	newinitd "${FILESDIR}"/${PN}.initd-r2 ${PN}
-    newconfd "${FILESDIR}"/${PN}.confd-r2 ${PN}
+	newconfd "${FILESDIR}"/${PN}.confd-r2 ${PN}
 	systemd_dounit systemd/dnscrypt-proxy.service
 	systemd_dounit systemd/dnscrypt-proxy.socket
 
-	# TODO: move cache to initscript
-	keepdir /var/cache/${PN}
 	keepdir /var/log/${PN}
+}
+
+pkg_postinst() {
+	use systemd && elog "with systemd dnscrypt-proxy you must set listen_addresses setting to \"[]\" in the config file"
+	use systemd && elog "edit dnscrypt-proxy.socket if you need to change the defaults port and address"
 }

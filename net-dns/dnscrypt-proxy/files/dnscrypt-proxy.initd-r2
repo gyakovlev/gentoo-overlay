@@ -3,9 +3,16 @@
 # Distributed under the terms of the GNU General Public License v2
 
 command="/usr/bin/dnscrypt-proxy"
-command_args="${DNSCRYPT_OPTS}"
+command_args="${DNSCRYPT_OPTS:---config /etc/dnscrypt-proxy/dnscrypt-proxy.toml}"
+#command_user="${DNSCRYPT_USER:-nobody}:${DNSCRYPT_GROUP:-nobody}"
 pidfile="/run/${SVCNAME}.pid"
+start_stop_daemon_args="--background --make-pidfile"
 
 depend() {
-	use net dns logger
+        use net logger
+        provide dns
+}
+
+start_pre() {
+        checkpath -q -d -m 0775 -o root:root /var/cache/${SVCNAME}
 }

@@ -21,12 +21,4 @@
 		requests using the DNSCrypt protocol and passing them to an upstream
 		server.
 	</longdescription>
-	<use>
-		<flag name="plugins">Enable plugin support to inspect and modify
-			queries and responses</flag>
-		<flag name="systemd">Use systemd's socket activation instead of
-			creating the sockets itself</flag>
-		<flag name="utils">Install python scripts for generating domain
-			black/white lists</flag>
-	</use>
 </pkgmetadata>
