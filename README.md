@@ -27,7 +27,7 @@ All credits for "stolen" ebuilds go to their respective authors.
 ├── README.md
 ├── sys-apps
 │   └── fd
-│       ├── fd-6.2.0.ebuild
+│       ├── fd-6.3.0.ebuild
 │       └── Manifest
 ├── sys-kernel
 │   └── it87

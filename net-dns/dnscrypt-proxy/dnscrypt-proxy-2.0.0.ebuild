@@ -60,15 +60,21 @@ src_install() {
 pkg_postinst() {
 	fcaps_pkg_postinst
 
+	if use ! fcaps; then
+		ewarn "You have disabled fcaps use flag."
+		ewarn "${PN} will fail to bind any port < 1024,"
+		ewarn "please adjust it to run as root or change the port"
+	fi
+
 	if [[ ${REPLACING_VERSIONS} ]] && [[ ${REPLACING_VERSIONS} == 1.* ]]; then
-		elog "version 2.x.x is a complete rewrite of dnscrypt-proxy."
+		elog "version 2.x.x is a complete rewrite of ${PN}."
 		elog "please clean up old config/log files."
 		elog
 	fi
 	if systemd_is_booted || has_version sys-apps/systemd; then
-		elog "To use systemd socket activation with dnscrypt-proxy you must"
+		elog "To use systemd socket activation with ${PN} you must"
 		elog "set listen_addresses setting to \"[]\" in the config file."
-		elog "Edit dnscrypt-proxy.socket if you need to change port and address"
+		elog "Edit ${PN}.socket if you need to change port and address"
 		elog
 	fi
 	elog "After starting the service you will need to update your"
@@ -77,5 +83,5 @@ pkg_postinst() {
 	elog
 	elog "nameserver 127.0.0.1"
 	elog
-	elog "Also see https://github.com/jedisct1/dnscrypt-proxy/wiki"
+	elog "Also see https://github.com/jedisct1/${PN}/wiki"
 }
