@@ -2,13 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-
 EGO_PN="github.com/jedisct1/${PN}"
-
 inherit fcaps golang-build systemd user
 
 DESCRIPTION="A flexible DNS proxy, with support for encrypted DNS protocols"
 HOMEPAGE="https://github.com/jedisct1/dnscrypt-proxy"
+
 if [[ "${PV}" = 9999* ]] ; then
 	inherit golang-vcs
 else
@@ -18,8 +17,6 @@ fi
 
 LICENSE="ISC"
 SLOT="0"
-
-IUSE="systemd"
 
 FILECAPS=( cap_net_bind_service+ep usr/bin/dnscrypt-proxy )
 
@@ -42,11 +39,11 @@ src_install() {
 
 	dobin dnscrypt-proxy
 
-	if use systemd; then
-		sed -i -e \
-			's|\['\''127\.0\.0\.1:53'\'', '\''\[::1\]:53'\''\]|\[\]|g' \
-			"src/${EGO_PN}"/example-dnscrypt-proxy.toml || die "sed failed"
-	fi
+#	if use systemd; then
+#		sed -i -e \
+#			's|\['\''127\.0\.0\.1:53'\'', '\''\[::1\]:53'\''\]|\[\]|g' \
+#			"src/${EGO_PN}"/example-dnscrypt-proxy.toml || die "sed failed"
+#	fi
 
 	sed -i \
 		-e 's|'\''nx\.log'\''|'\''/var/log/dnscrypt-proxy/nx\.log'\''|g' \
@@ -83,6 +80,22 @@ src_install() {
 }
 
 pkg_postinst() {
-	use systemd && elog "with systemd dnscrypt-proxy you must set listen_addresses setting to \"[]\" in the config file"
-	use systemd && elog "edit dnscrypt-proxy.socket if you need to change the defaults port and address"
+	if [[ ${REPLACING_VERSIONS} ]] && [[ ${REPLACING_VERSIONS} == 1.* ]]; then
+		elog "version 2.x.x is a complete rewrite of dnscrypt-proxy."
+		elog "please clean up old config/log files."
+		elog
+	fi
+	if systemd_is_booted || has_version sys-apps/systemd; then
+		elog "To use systemd socket activation with dnscrypt-proxy you must"
+		elog "set listen_addresses setting to \"[]\" in the config file"
+		elog "edit dnscrypt-proxy.socket if you need to change port and address"
+		elog
+	fi
+	elog "After starting the service you will need to update your"
+	elog "/etc/resolv.conf and replace your current set of resolvers"
+	elog "with:"
+	elog
+	elog "nameserver 127.0.0.1"
+	elog
+	elog "Also see https://github.com/jedisct1/dnscrypt-proxy/wiki"
 }
