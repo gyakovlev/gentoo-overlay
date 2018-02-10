@@ -36,7 +36,7 @@ All credits for "stolen" ebuilds go to their respective authors.
 └── x11-misc
     └── xwallpaper
         ├── Manifest
-        └── xwallpaper-0.2.1.ebuild
+        └── xwallpaper-0.3.0.ebuild
 
 13 directories, 18 files
 ````
