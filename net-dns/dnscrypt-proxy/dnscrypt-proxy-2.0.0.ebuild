@@ -7,15 +7,9 @@ inherit fcaps golang-build systemd user
 
 DESCRIPTION="A flexible DNS proxy, with support for encrypted DNS protocols"
 HOMEPAGE="https://github.com/jedisct1/dnscrypt-proxy"
+SRC_URI="https://${EGO_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-if [[ "${PV}" = 9999* ]] ; then
-	inherit golang-vcs
-else
-	SRC_URI="https://${EGO_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
-
-IUSE="+filecaps"
+KEYWORDS="~amd64 ~x86"
 LICENSE="ISC"
 SLOT="0"
 
@@ -23,8 +17,8 @@ FILECAPS=( cap_net_bind_service+ep usr/bin/dnscrypt-proxy )
 PATCHES=( "${FILESDIR}"/full-paths-config.patch )
 
 pkg_setup() {
-		enewgroup dnscrypt
-		enewuser dnscrypt -1 -1 /var/empty dnscrypt
+	enewgroup dnscrypt
+	enewuser dnscrypt -1 -1 /var/empty dnscrypt
 }
 
 src_compile() {
@@ -37,6 +31,7 @@ src_compile() {
 }
 
 src_install() {
+
 	default
 
 	dobin dnscrypt-proxy
@@ -48,9 +43,10 @@ src_install() {
 	insinto "/usr/share/${PN}"
 	doins -r "utils/generate-domains-blacklists/"
 
-	sed -i -e "/^ExecStart=/ s|=/opt/dnscrypt-proxy/dnscrypt-proxy|=${EROOT}usr/bin/dnscrypt-proxy|" \
-		systemd/dnscrypt-proxy.service || die "sed failed"
-	sed -i -e "/^ExecStart=/ s|$|  --config ${EROOT}etc/dnscrypt-proxy/dnscrypt-proxy.toml|" \
+	sed -i \
+		-e "/^ExecStart=/ s|=/opt/dnscrypt-proxy/dnscrypt-proxy|=${EROOT}usr/bin/dnscrypt-proxy|" \
+		-e "/^ExecStart=/ s|$| --config ${EROOT}etc/dnscrypt-proxy/dnscrypt-proxy.toml|" \
+		-e "/^\[Service\]/a User=dnscrypt\nGroup=dnscrypt"\
 		systemd/dnscrypt-proxy.service || die "sed failed"
 
 	newinitd "${FILESDIR}"/${PN}.initd-r2 ${PN}
@@ -71,8 +67,8 @@ pkg_postinst() {
 	fi
 	if systemd_is_booted || has_version sys-apps/systemd; then
 		elog "To use systemd socket activation with dnscrypt-proxy you must"
-		elog "set listen_addresses setting to \"[]\" in the config file"
-		elog "edit dnscrypt-proxy.socket if you need to change port and address"
+		elog "set listen_addresses setting to \"[]\" in the config file."
+		elog "Edit dnscrypt-proxy.socket if you need to change port and address"
 		elog
 	fi
 	elog "After starting the service you will need to update your"
