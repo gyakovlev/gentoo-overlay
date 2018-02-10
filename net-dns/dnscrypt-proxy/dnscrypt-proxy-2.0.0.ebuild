@@ -20,7 +20,7 @@ LICENSE="ISC"
 SLOT="0"
 
 FILECAPS=( cap_net_bind_service+ep usr/bin/dnscrypt-proxy )
-PATCHES=( "${FILESDIR}"/usableconfig.patch )
+PATCHES=( "${FILESDIR}"/full-paths-config.patch )
 
 pkg_setup() {
 		enewgroup dnscrypt
