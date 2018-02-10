@@ -15,15 +15,17 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
+IUSE="+filecaps"
 LICENSE="ISC"
 SLOT="0"
 
 FILECAPS=( cap_net_bind_service+ep usr/bin/dnscrypt-proxy )
+PATCHES=( "${FILESDIR}"/usableconfig.patch )
 
-#pkg_setup() {
-#		enewgroup dnscrypt
-#		enewuser dnscrypt -1 -1 /var/empty dnscrypt
-#}
+pkg_setup() {
+		enewgroup dnscrypt
+		enewuser dnscrypt -1 -1 /var/empty dnscrypt
+}
 
 src_compile() {
 	# Create directory structure suitable for building
@@ -38,26 +40,6 @@ src_install() {
 	default
 
 	dobin dnscrypt-proxy
-
-#	if use systemd; then
-#		sed -i -e \
-#			's|\['\''127\.0\.0\.1:53'\'', '\''\[::1\]:53'\''\]|\[\]|g' \
-#			"src/${EGO_PN}"/example-dnscrypt-proxy.toml || die "sed failed"
-#	fi
-
-	sed -i \
-		-e 's|'\''nx\.log'\''|'\''/var/log/dnscrypt-proxy/nx\.log'\''|g' \
-		-e 's|'\''query\.log'\''|'\''/var/log/dnscrypt-proxy/query\.log'\''|g' \
-		-e 's|'\''blacklist\.txt'\''|'\''/etc/dnscrypt-proxy/blacklist\.txt'\''|g' \
-		-e 's|'\''blocked\.log'\''|'\''/var/log/dnscrypt-proxy/blocked\.log'\''|g' \
-		-e 's|'\''ip-blacklist\.txt'\''|'\''/etc/dnscrypt-proxy/ip-blacklist\.txt'\''|g' \
-		-e 's|'\''ip-blocked\.log'\''|'\''/var/log/dnscrypt-proxy/ip-blocked\.log'\''|g' \
-		-e 's|'\''cloaking-rules\.txt'\''|'\''/etc/dnscrypt-proxy/cloaking-rules\.txt'\''|g' \
-		-e 's|'\''dnscrypt-proxy\.log'\''|'\''/var/log/dnscrypt-proxy/dnscrypt-proxy\.log'\''|g' \
-		-e 's|'\''forwarding-rules\.txt'\''|'\''/etc/dnscrypt-proxy/forwarding-rules\.txt'\''|g' \
-		-e 's|'\''public-resolvers\.md'\''|'\''/var/cache/dnscrypt-proxy/public-resolvers\.md'\''|g' \
-		-e 's|'\''parental-control\.md'\''|'\''/var/cache/dnscrypt-proxy/parental-control\.md'\''|g' \
-			"src/${EGO_PN}"/example-dnscrypt-proxy.toml || die "sed failed"
 
 	insinto /etc/${PN}
 	newins "src/${EGO_PN}"/example-dnscrypt-proxy.toml dnscrypt-proxy.toml
@@ -80,6 +62,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	fcaps_pkg_postinst
+
 	if [[ ${REPLACING_VERSIONS} ]] && [[ ${REPLACING_VERSIONS} == 1.* ]]; then
 		elog "version 2.x.x is a complete rewrite of dnscrypt-proxy."
 		elog "please clean up old config/log files."
