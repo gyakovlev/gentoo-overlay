@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -10,13 +10,15 @@ SRC_URI="https://github.com/stoeckmann/${PN}/releases/download/v${PV}/${P}.tar.g
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="jpeg png xpm"
+IUSE="jpeg png seccomp xpm +xrandr"
 
 DEPEND="jpeg? ( virtual/jpeg:0 )
-		png? ( media-libs/libpng:0 )
-		xpm? ( x11-libs/libXpm )
-		x11-libs/pixman
-		x11-libs/xcb-util-image"
+		png? ( >=media-libs/libpng-1.2 )
+		seccomp? ( >=sys-libs/libseccomp-2.3.1 )
+		xpm? ( >=x11-libs/libXpm-3.5 )
+		>=x11-libs/pixman-0.32
+		>=x11-libs/xcb-util-0.3.8
+		>=x11-libs/xcb-util-image-0.3.8"
 RDEPEND="${DEPEND}"
 
 src_prepeare() {
@@ -26,5 +28,7 @@ src_configure() {
 	econf \
 		$(use_with jpeg) \
 		$(use_with png) \
-		$(use_with xpm)
+		$(use_with seccomp) \
+		$(use_with xpm) \
+		$(use_with xrandr randr)
 }
