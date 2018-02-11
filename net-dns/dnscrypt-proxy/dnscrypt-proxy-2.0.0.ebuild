@@ -2,19 +2,21 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
+
 EGO_PN="github.com/jedisct1/${PN}"
+
 inherit fcaps golang-build systemd user
 
 DESCRIPTION="A flexible DNS proxy, with support for encrypted DNS protocols"
 HOMEPAGE="https://github.com/jedisct1/dnscrypt-proxy"
 SRC_URI="https://${EGO_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64 ~x86"
 LICENSE="ISC"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 FILECAPS=( cap_net_bind_service+ep usr/bin/dnscrypt-proxy )
-PATCHES=( "${FILESDIR}"/full-paths-config.patch )
+PATCHES=( "${FILESDIR}"/config-full-paths-r2.patch )
 
 pkg_setup() {
 	enewgroup dnscrypt
@@ -31,7 +33,6 @@ src_compile() {
 }
 
 src_install() {
-
 	default
 
 	dobin dnscrypt-proxy
@@ -43,15 +44,9 @@ src_install() {
 	insinto "/usr/share/${PN}"
 	doins -r "utils/generate-domains-blacklists/"
 
-	sed -i \
-		-e "/^ExecStart=/ s|=/opt/dnscrypt-proxy/dnscrypt-proxy|=${EROOT}usr/bin/dnscrypt-proxy|" \
-		-e "/^ExecStart=/ s|$| --config ${EROOT}etc/dnscrypt-proxy/dnscrypt-proxy.toml|" \
-		-e "/^\[Service\]/a User=dnscrypt\nGroup=dnscrypt"\
-		systemd/dnscrypt-proxy.service || die "sed failed"
-
 	newinitd "${FILESDIR}"/${PN}.initd-r2 ${PN}
 	newconfd "${FILESDIR}"/${PN}.confd-r2 ${PN}
-	systemd_dounit systemd/dnscrypt-proxy.service
+	systemd_newunit "${FILESDIR}"/${PN}.service-r2 ${PN}.service
 	systemd_dounit systemd/dnscrypt-proxy.socket
 
 	keepdir /var/log/${PN}
@@ -60,23 +55,30 @@ src_install() {
 pkg_postinst() {
 	fcaps_pkg_postinst
 
-	if use ! fcaps; then
-		ewarn "You have disabled fcaps use flag."
-		ewarn "${PN} will fail to bind any port < 1024,"
-		ewarn "please adjust it to run as root or change the port"
+	if ! use filecaps; then
+		ewarn
+		ewarn "'filecaps' USE flag is disabled"
+		ewarn "${PN} will fail to listen on port 53 if started via OpenRC"
+		ewarn "please either change port to > 1024, configure to run ${PN} as root"
+		ewarn "or re-enable 'filecaps'"
+		ewarn
 	fi
 
 	if [[ ${REPLACING_VERSIONS} ]] && [[ ${REPLACING_VERSIONS} == 1.* ]]; then
-		elog "version 2.x.x is a complete rewrite of ${PN}."
-		elog "please clean up old config/log files."
+		elog
+		elog "Version 2.x.x is a complete rewrite of ${PN}"
+		elog "please clean up old config/log files"
 		elog
 	fi
+
 	if systemd_is_booted || has_version sys-apps/systemd; then
+		elog
 		elog "To use systemd socket activation with ${PN} you must"
-		elog "set listen_addresses setting to \"[]\" in the config file."
+		elog "set listen_addresses setting to \"[]\" in the config file"
 		elog "Edit ${PN}.socket if you need to change port and address"
 		elog
 	fi
+
 	elog "After starting the service you will need to update your"
 	elog "/etc/resolv.conf and replace your current set of resolvers"
 	elog "with:"
