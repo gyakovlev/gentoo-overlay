@@ -5,7 +5,7 @@ EAPI=6
 
 inherit savedconfig
 
-DESCRIPTION="Fast, fuzzy text selector with an advanced scoring algorithm"
+DESCRIPTION="Fuzzy text selector (interactive grep) for console"
 HOMEPAGE="https://github.com/jhawthorn/fzy"
 SRC_URI="https://github.com/jhawthorn/fzy/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -22,11 +22,12 @@ src_prepare() {
 }
 
 src_install() {
+	local DOCS=( ALGORITHM.md CHANGELOG.md README.md )
+
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr install
 	exeinto /usr/share/fzy
 	doexe contrib/fzy-tmux
 	doexe contrib/fzy-dvtm
-	local DOCS=( ALGORITHM.md CHANGELOG.md README.md )
 	einstalldocs
 	save_config config.h
 }
