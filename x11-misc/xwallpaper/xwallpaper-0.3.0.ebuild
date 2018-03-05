@@ -31,5 +31,6 @@ src_configure() {
 		$(use_with png) \
 		$(use_with seccomp) \
 		$(use_with xpm) \
-		--with-randr
+		--with-randr \
+		--with-zshcompletiondir="${EPREFIX}/usr/share/zsh/site-functions"
 }
