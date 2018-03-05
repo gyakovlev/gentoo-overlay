@@ -10,15 +10,16 @@ SRC_URI="https://github.com/stoeckmann/${PN}/releases/download/v${PV}/${P}.tar.g
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="jpeg png seccomp xpm +xrandr"
+IUSE="jpeg png seccomp xpm"
 
 DEPEND="jpeg? ( virtual/jpeg:0 )
-		png? ( >=media-libs/libpng-1.2 )
+		png? ( >=media-libs/libpng-1.2:= )
 		seccomp? ( >=sys-libs/libseccomp-2.3.1 )
 		xpm? ( >=x11-libs/libXpm-3.5 )
 		>=x11-libs/pixman-0.32
 		>=x11-libs/xcb-util-0.3.8
 		>=x11-libs/xcb-util-image-0.3.8"
+
 RDEPEND="${DEPEND}"
 
 src_prepeare() {
@@ -30,5 +31,6 @@ src_configure() {
 		$(use_with png) \
 		$(use_with seccomp) \
 		$(use_with xpm) \
-		$(use_with xrandr randr)
+		--with-randr
+#		$(use_with xrandr randr)
 }

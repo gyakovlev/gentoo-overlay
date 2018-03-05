@@ -8,13 +8,7 @@ inherit git-r3 linux-mod
 DESCRIPTION="Linux Driver for ITE LPC chips"
 HOMEPAGE="https://github.com/groeck/it87"
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/groeck/${PN}.git"
-else
-	SRC_URI=""
-	KEYWORDS=""
-fi
+EGIT_REPO_URI="https://github.com/groeck/${PN}.git"
 
 LICENSE="GPL-2"
 SLOT="0"
