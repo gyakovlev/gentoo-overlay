@@ -10,14 +10,16 @@ All credits for "stolen" ebuilds go to their respective authors.
 ├── profiles
 │   └── repo_name
 ├── README.md
-├── sys-apps
-│   └── fd
-│       ├── fd-6.3.0.ebuild
-│       └── Manifest
+├── sys-kernel
+│   └── it87
+│       ├── it87-9999.ebuild
+│       ├── Manifest
+│       └── metadata.xml
 └── x11-misc
     └── xwallpaper
         ├── Manifest
+        ├── metadata.xml
         └── xwallpaper-0.3.0.ebuild
 
-8 directories, 9 files
+6 directories, 9 files
 ````
