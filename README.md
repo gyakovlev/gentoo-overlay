@@ -24,3 +24,24 @@ All credits for "stolen" ebuilds go to their respective authors.
 
 6 directories, 9 files
 ````
+````
+.
+├── metadata
+│   └── layout.conf
+├── profiles
+│   └── repo_name
+├── sys-kernel
+│   └── it87
+│       ├── it87-9999.ebuild
+│       ├── Manifest
+│       └── metadata.xml
+├── x11-misc
+│   └── xwallpaper
+│       ├── Manifest
+│       ├── metadata.xml
+│       └── xwallpaper-0.3.0.ebuild
+├── gyakovlev.conf
+└── README.md
+
+6 directories, 10 files
+````
