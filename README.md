@@ -9,6 +9,8 @@ This overlay is not meant for public consumption, is unstable and packages can g
 │   └── layout.conf
 ├── profiles
 │   └── repo_name
+├── scripts
+│   └── pre-commit
 ├── sys-kernel
 │   └── it87
 │       ├── it87-9999.ebuild
@@ -22,5 +24,5 @@ This overlay is not meant for public consumption, is unstable and packages can g
 ├── gyakovlev.conf
 └── README.md
 
-6 directories, 10 files
+7 directories, 11 files
 ````
