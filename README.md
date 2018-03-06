@@ -6,25 +6,6 @@ All credits for "stolen" ebuilds go to their respective authors.
 
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ````
-├── metadata
-│   └── layout.conf
-├── profiles
-│   └── repo_name
-├── README.md
-├── sys-kernel
-│   └── it87
-│       ├── it87-9999.ebuild
-│       ├── Manifest
-│       └── metadata.xml
-└── x11-misc
-    └── xwallpaper
-        ├── Manifest
-        ├── metadata.xml
-        └── xwallpaper-0.3.0.ebuild
-
-6 directories, 9 files
-````
-````
 .
 ├── metadata
 │   └── layout.conf
