@@ -25,7 +25,9 @@ src_prepare() {
 }
 
 src_install() {
+	local DOCS=( ISSUES ITE_Register_map.csv ITE_Register_map.pdf README )
 	linux-mod_src_install
 	insinto /usr/lib/modules-load.d/
 	doins "${FILESDIR}"/it87.conf
+	einstalldocs
 }
