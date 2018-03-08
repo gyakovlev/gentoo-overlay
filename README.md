@@ -21,8 +21,13 @@ This overlay is not meant for public consumption, is unstable and packages can g
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── xwallpaper-0.3.0.ebuild
+├── x11-terms
+│   └── alacritty
+│       ├── alacritty-2018.03.04.ebuild
+│       ├── Manifest
+│       └── metadata.xml
 ├── gyakovlev.conf
 └── README.md
 
-7 directories, 11 files
+9 directories, 14 files
 ````
