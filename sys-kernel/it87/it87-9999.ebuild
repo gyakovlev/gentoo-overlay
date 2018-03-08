@@ -23,3 +23,9 @@ src_prepare() {
 	eapply_user
 	sed -i 's@^KERNEL_BUILD.*@KERNEL_BUILD := $(KERNEL_MODULES)/build@' "${S}/Makefile" || die "Could not fix build path"
 }
+
+src_install() {
+	linux-mod_src_install
+	insinto /usr/lib/modules-load.d/
+	doins "${FILESDIR}"/it87.conf
+}

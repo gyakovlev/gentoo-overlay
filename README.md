@@ -13,6 +13,8 @@ This overlay is not meant for public consumption, is unstable and packages can g
 │   └── pre-commit
 ├── sys-kernel
 │   └── it87
+│       ├── files
+│       │   └── it87.conf
 │       ├── it87-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml
@@ -29,5 +31,5 @@ This overlay is not meant for public consumption, is unstable and packages can g
 ├── gyakovlev.conf
 └── README.md
 
-9 directories, 14 files
+10 directories, 15 files
 ````
