@@ -11,6 +11,12 @@ This overlay is not meant for public consumption, is unstable and packages can g
 │   └── repo_name
 ├── scripts
 │   └── pre-commit
+├── sys-fs
+│   └── zfs-auto-snapshot
+│       ├── Manifest
+│       ├── metadata.xml
+│       ├── zfs-auto-snapshot-1.2.4.ebuild
+│       └── zfs-auto-snapshot-9999.ebuild
 ├── sys-kernel
 │   └── it87
 │       ├── files
@@ -31,5 +37,5 @@ This overlay is not meant for public consumption, is unstable and packages can g
 ├── gyakovlev.conf
 └── README.md
 
-10 directories, 15 files
+12 directories, 19 files
 ````
