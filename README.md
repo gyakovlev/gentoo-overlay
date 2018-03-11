@@ -39,9 +39,10 @@ This overlay is not meant for public consumption, is unstable and packages can g
 │       ├── files
 │       │   └── i3-gaps-musl-GLOB_TILDE.patch
 │       ├── i3-gaps-4.15.ebuild
-│       └── Manifest
+│       ├── Manifest
+│       └── metadata.xml
 ├── gyakovlev.conf
 └── README.md
 
-15 directories, 22 files
+15 directories, 23 files
 ````
