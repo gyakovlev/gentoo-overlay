@@ -34,8 +34,14 @@ This overlay is not meant for public consumption, is unstable and packages can g
 │       ├── alacritty-2018.03.04.ebuild
 │       ├── Manifest
 │       └── metadata.xml
+├── x11-wm
+│   └── i3-gaps
+│       ├── files
+│       │   └── i3-gaps-musl-GLOB_TILDE.patch
+│       ├── i3-gaps-4.15.ebuild
+│       └── Manifest
 ├── gyakovlev.conf
 └── README.md
 
-12 directories, 19 files
+15 directories, 22 files
 ````
