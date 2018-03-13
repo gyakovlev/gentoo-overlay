@@ -31,7 +31,7 @@ This overlay is not meant for public consumption, is unstable and packages can g
 │       └── xwallpaper-0.3.0.ebuild
 ├── x11-terms
 │   └── alacritty
-│       ├── alacritty-2018.03.04.ebuild
+│       ├── alacritty-2018.03.12.ebuild
 │       ├── Manifest
 │       └── metadata.xml
 ├── x11-wm
