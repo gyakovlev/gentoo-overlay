@@ -25,8 +25,6 @@ RDEPEND="sys-fs/zfs
 
 src_install() {
 	if use default-exclude; then
-	echo $PDW
-	pwd
 		for cronfile in etc/${PN}.cron.{daily,hourly,monthly,weekly}; do
 			sed -i "s/\(^exec ${PN}\)/\1 --default-exclude/" "$cronfile" || die
 		done
