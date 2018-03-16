@@ -19,6 +19,11 @@ CONFIG_CHECK="HWMON ~!CONFIG_SENSORS_IT87"
 MODULE_NAMES="it87(misc:${S})"
 BUILD_TARGETS="modules"
 
+pkg_setup() {
+	linux-mod_pkg_setup
+	BUILD_PARAMS="TARGET=${KV_FULL}"
+}
+
 src_prepare() {
 	eapply_user
 	sed -i 's@^KERNEL_BUILD.*@KERNEL_BUILD := $(KERNEL_MODULES)/build@' "${S}/Makefile" || die "Could not fix build path"
