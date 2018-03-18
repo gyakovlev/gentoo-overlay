@@ -35,27 +35,27 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```
 .
-├── metadata
+├── metadata/
 │   └── layout.conf
-├── profiles
+├── profiles/
 │   └── repo_name
-├── scripts
-│   └── pre-commit
-├── sys-fs
-│   └── zfs-auto-snapshot
+├── scripts/
+│   └── pre-commit*
+├── sys-fs/
+│   └── zfs-auto-snapshot/
 │       ├── Manifest
 │       ├── metadata.xml
 │       ├── zfs-auto-snapshot-1.2.4.ebuild
 │       └── zfs-auto-snapshot-9999.ebuild
-├── sys-kernel
-│   └── it87
-│       ├── files
+├── sys-kernel/
+│   └── it87/
+│       ├── files/
 │       │   └── it87.conf
 │       ├── it87-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml
-├── x11-misc
-│   └── xwallpaper
+├── x11-misc/
+│   └── xwallpaper/
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── xwallpaper-0.3.0.ebuild
