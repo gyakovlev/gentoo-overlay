@@ -1,8 +1,9 @@
 # gyakovlev 
-This is my personal portage overlay for [Gentoo Linux](https://gentoo.org/).  
-I do my best to maintain ebuilds according to main repo standard.
-Most packages end up in gentoo, but some may stay here forever.
-WIP/Unstable packages should remain masked.
+This is my personal portage overlay for [Gentoo Linux](https://gentoo.org/).
+
+I do my best to maintain ebuilds according to main repo standard.  
+Most packages end up in gentoo, but some may stay here forever.  
+WIP/Unstable packages should remain masked.  
 
 ## Installation
 
@@ -10,13 +11,13 @@ WIP/Unstable packages should remain masked.
 ```sh
 mkdir -p /etc/portage/repos.conf
 wget  -O /etc/portage/repos.conf/gyakovlev.conf \
-https://raw.githubusercontent.com/gyakovlev/gentoo-overlay/master/gyakovlev.conf
+  https://raw.githubusercontent.com/gyakovlev/gentoo-overlay/master/gyakovlev.conf
 ```
 
 - using curl
 ```sh
 curl -Lo /etc/portage/repos.conf/gyakovlev.conf --create-dirs \
-	https://raw.githubusercontent.com/gyakovlev/gentoo-overlay/master/gyakovlev.conf
+  https://raw.githubusercontent.com/gyakovlev/gentoo-overlay/master/gyakovlev.conf
 ```
 
 
