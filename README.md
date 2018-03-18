@@ -29,20 +29,8 @@ This overlay is not meant for public consumption, is unstable and packages can g
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── xwallpaper-0.3.0.ebuild
-├── x11-terms
-│   └── alacritty
-│       ├── alacritty-2018.03.12.ebuild
-│       ├── Manifest
-│       └── metadata.xml
-├── x11-wm
-│   └── i3-gaps
-│       ├── files
-│       │   └── i3-gaps-musl-GLOB_TILDE.patch
-│       ├── i3-gaps-4.15.ebuild
-│       ├── Manifest
-│       └── metadata.xml
 ├── gyakovlev.conf
 └── README.md
 
-15 directories, 23 files
+10 directories, 16 files
 ````
