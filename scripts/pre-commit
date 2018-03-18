@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 sed -i '/^\[comment\]: # \(.*pre-commit.*\)/q' ./README.md
-echo '````' >> README.md
+echo '```' >> README.md
 tree -n --dirsfirst . >> README.md
-echo '````' >> README.md
+echo '```' >> README.md
 git add README.md
