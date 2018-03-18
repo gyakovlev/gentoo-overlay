@@ -21,12 +21,7 @@ BUILD_TARGETS="modules"
 
 pkg_setup() {
 	linux-mod_pkg_setup
-	BUILD_PARAMS="TARGET=${KV_FULL}"
-}
-
-src_prepare() {
-	eapply_user
-	sed -i 's@^KERNEL_BUILD.*@KERNEL_BUILD := $(KERNEL_MODULES)/build@' "${S}/Makefile" || die "Could not fix build path"
+	BUILD_PARAMS="TARGET=${KV_FULL} KERNEL_BUILD=${KV_DIR}"
 }
 
 src_install() {
