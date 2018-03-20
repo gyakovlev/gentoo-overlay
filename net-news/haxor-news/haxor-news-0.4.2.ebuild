@@ -19,21 +19,16 @@ IUSE=""
 RDEPEND="
 		>=dev-python/click-5.1[${PYTHON_USEDEP}]
 		>=dev-python/colorama-0.3.3[${PYTHON_USEDEP}]
-		<dev-python/colorama-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-2.4.3[${PYTHON_USEDEP}]
-		<dev-python/requests-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.0.2[${PYTHON_USEDEP}]
-		<dev-python/pygments-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/prompt_toolkit-1.0.0[${PYTHON_USEDEP}]
-		<dev-python/prompt_toolkit-1.1.0[${PYTHON_USEDEP}]
 		>=dev-python/six-1.9.0[${PYTHON_USEDEP}]
-		<dev-python/six-2.0.0[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}
 		dev-python/setuptools[${PYTHON_USEDEP}]
 "
 
-# tests connect to various remote sites
+# tests require network
 RESTRICT="test"
 
 src_prepare() {
