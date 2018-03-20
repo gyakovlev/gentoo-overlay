@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/gyakovlev/gentoo-overlay.svg?branch=master)](https://travis-ci.org/gyakovlev/gentoo-overlay)
 # gyakovlev 
 This is my personal portage overlay for [Gentoo Linux](https://gentoo.org/).
 
