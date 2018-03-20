@@ -39,7 +39,7 @@ emaint sync -r gyakovlev
 │   └── layout.conf
 ├── net-news/
 │   └── haxor-news/
-│       ├── haxor-news-0.4.2.ebuild
+│       ├── haxor-news-0.4.3.ebuild
 │       ├── Manifest
 │       └── metadata.xml
 ├── profiles/
