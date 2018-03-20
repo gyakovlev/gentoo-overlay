@@ -28,7 +28,7 @@ DEPEND="${RDEPEND}
 		dev-python/setuptools[${PYTHON_USEDEP}]
 "
 
-# tests require network
+# tests require network https://github.com/donnemartin/haxor-news/issues/129
 RESTRICT="test"
 
 src_prepare() {
