@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ya@sysdump.net</email>
+		<name>Georgy Yakovlev</name>
+	</maintainer>	
+	<longdescription lang="en">
+		slstatus is a suckless status monitor for window managers that use WM_NAME
+		(e.g. dwm) or stdin to fill the status bar.
+	</longdescription>
+</pkgmetadata>

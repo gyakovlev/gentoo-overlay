@@ -61,6 +61,10 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       └── metadata.xml
 ├── x11-misc/
+│   ├── slstatus/
+│   │   ├── Manifest
+│   │   ├── metadata.xml
+│   │   └── slstatus-9999.ebuild
 │   └── xwallpaper/
 │       ├── Manifest
 │       ├── metadata.xml
@@ -68,5 +72,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-12 directories, 19 files
+13 directories, 22 files
 ```
