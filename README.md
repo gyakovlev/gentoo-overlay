@@ -68,9 +68,10 @@ emaint sync -r gyakovlev
 │   └── xwallpaper/
 │       ├── Manifest
 │       ├── metadata.xml
-│       └── xwallpaper-0.3.0.ebuild
+│       ├── xwallpaper-0.3.0.ebuild
+│       └── xwallpaper-9999.ebuild
 ├── gyakovlev.conf
 └── README.md
 
-13 directories, 22 files
+13 directories, 23 files
 ```
