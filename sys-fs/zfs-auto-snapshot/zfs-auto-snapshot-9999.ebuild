@@ -36,10 +36,10 @@ src_install() {
 pkg_postinst() {
 	if ! use default-exclude; then
 		ewarn "snapshots are enabled by default for ALL zfs filesystems"
-		ewarn "set com.sun:auto-snapshot=false or enable 'default-exclude'"
+		ewarn "set com.sun:auto-snapshot=false or enable 'default-exclude' flag"
 		elog
 	fi
-	elog "use com.sun:auto-snapshot attribute to enable snapshots"
+	elog "use com.sun:auto-snapshot attribute to enable snapshots for datasets"
 	elog "the syntax is:"
 	elog
 	elog "zfs set com.sun:auto-snapshot=[true|false]"
