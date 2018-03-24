@@ -22,8 +22,8 @@ curl -Lo /etc/portage/repos.conf/gyakovlev.conf --create-dirs \
 ```
 
 
-- [ ] using [eselect-repository](https://packages.gentoo.org/packages/app-eselect/eselect-repository) not yet available
-- [ ] using [layman](https://packages.gentoo.org/packages/app-portage/layman) not yet available
+- [ ] using [eselect-repository](https://packages.gentoo.org/packages/app-eselect/eselect-repository) not yet implemented
+- [ ] using [layman](https://packages.gentoo.org/packages/app-portage/layman) not yet implemented
 
 
 ## sync the repo
