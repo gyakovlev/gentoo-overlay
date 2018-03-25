@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/gyakovlev/gentoo-overlay.svg?branch=master)](https://travis-ci.org/gyakovlev/gentoo-overlay)
 # gyakovlev 
-This is my personal portage overlay for [Gentoo Linux](https://gentoo.org/).
+This is my personal portage overlay for [Gentoo Linux](https://gentoo.org/)
 
 I do my best to maintain ebuilds according to main repo standard.  
 Most packages end up in gentoo, but some may stay here forever.  
@@ -11,14 +11,12 @@ WIP/Unstable packages should remain masked.
 - using wget
 ```sh
 mkdir -p /etc/portage/repos.conf
-wget  -O /etc/portage/repos.conf/gyakovlev.conf \
-  https://raw.githubusercontent.com/gyakovlev/gentoo-overlay/master/gyakovlev.conf
+wget  -O /etc/portage/repos.conf/gyakovlev.conf https://raw.githubusercontent.com/gyakovlev/gentoo-overlay/master/gyakovlev.conf
 ```
 
 - using curl
 ```sh
-curl -Lo /etc/portage/repos.conf/gyakovlev.conf --create-dirs \
-  https://raw.githubusercontent.com/gyakovlev/gentoo-overlay/master/gyakovlev.conf
+curl -Lo /etc/portage/repos.conf/gyakovlev.conf --create-dirs https://raw.githubusercontent.com/gyakovlev/gentoo-overlay/master/gyakovlev.conf
 ```
 
 
