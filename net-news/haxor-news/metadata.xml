@@ -9,6 +9,7 @@
 		haxor-news brings Hacker News to the terminal,
 		allowing you to view/filter the site leaving your command line.
 	</longdescription>
+	<stabilize-allarches/>
 	<upstream>
 		<remote-id type="github">donnemartin/haxor-news</remote-id>
 	</upstream>
