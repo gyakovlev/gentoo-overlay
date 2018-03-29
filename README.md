@@ -34,6 +34,11 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```Hack
 .
+├── media-fonts/
+│   └── plex/
+│       ├── Manifest
+│       ├── metadata.xml
+│       └── plex-1.0.1.ebuild
 ├── metadata/
 │   └── layout.conf
 ├── net-news/
@@ -67,5 +72,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-12 directories, 20 files
+14 directories, 23 files
 ```

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ya@sysdump.net</email>
+		<name>Georgy Yakovlev</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Gentoo Proxy Maintainers Project</name>
+	</maintainer>
+	<longdescription lang="en">
+		Distinctly IBM font family.
+		It comes in a Sans, Serif, Mono and Sans Condensed,
+		all with roman and true italics.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">IBM/plex</remote-id>
+	</upstream>
+</pkgmetadata>
