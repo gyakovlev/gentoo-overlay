@@ -5,10 +5,6 @@
 		<email>ya@sysdump.net</email>
 		<name>Georgy Yakovlev</name>
 	</maintainer>
-	<maintainer type="project">
-		<email>proxy-maint@gentoo.org</email>
-		<name>Gentoo Proxy Maintainers Project</name>
-	</maintainer>
 	<longdescription lang="en">
 		Distinctly IBM font family.
 		It comes in a Sans, Serif, Mono and Sans Condensed,
