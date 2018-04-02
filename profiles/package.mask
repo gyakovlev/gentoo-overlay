@@ -1,0 +1,3 @@
+# Georgy Yakovlev <ya@sysdump.net> (01 Apr 2018)
+# WIP, masked for testing
+sys-fs/systemd-zpool-scrub

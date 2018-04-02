@@ -48,6 +48,7 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       └── metadata.xml
 ├── profiles/
+│   ├── package.mask
 │   └── repo_name
 ├── scripts/
 │   └── pre-commit*
@@ -76,5 +77,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-15 directories, 26 files
+15 directories, 27 files
 ```
