@@ -52,6 +52,10 @@ emaint sync -r gyakovlev
 ├── scripts/
 │   └── pre-commit*
 ├── sys-fs/
+│   ├── systemd-zpool-scrub/
+│   │   ├── Manifest
+│   │   ├── metadata.xml
+│   │   └── systemd-zpool-scrub-9999.ebuild
 │   └── zfs-auto-snapshot/
 │       ├── Manifest
 │       ├── metadata.xml
@@ -72,5 +76,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-14 directories, 23 files
+15 directories, 26 files
 ```
