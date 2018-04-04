@@ -12,7 +12,7 @@ else
 	S="${WORKDIR}/${PN}-upstream-${PV}"
 fi
 
-DESCRIPTION="ZFS Automatic Snapshot Service for Linux "
+DESCRIPTION="ZFS Automatic Snapshot Service for Linux"
 HOMEPAGE="https://github.com/zfsonlinux/zfs-auto-snapshot"
 
 LICENSE="GPL-2"
