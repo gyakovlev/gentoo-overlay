@@ -14,6 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
+# NOTE: gcc: depend or not depend? research it.
 DEPEND="sys-devel/gcc:="
 RDEPEND="${DEPEND}"
 
@@ -28,12 +29,15 @@ pkg_pretend() {
 
 src_prepare() {
 	default
+	# FIXME: tighten sed, or use patch. Or find another way around macro version check
 	sed -i 's|2.64|2.69|g' config/override.m4 || die
 	eautoreconf
 }
 
 src_configure() {
+	# TODO static libs, pie, etc
 	local myconf=(
+		# FIXME: it's ugly.
 		--with-gcc-plugin-dir=$($(tc-getCC) -print-file-name=plugin)
 	)
 	econf "${myconf[@]}"
