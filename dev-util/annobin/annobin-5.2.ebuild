@@ -17,6 +17,15 @@ IUSE=""
 DEPEND="sys-devel/gcc:="
 RDEPEND="${DEPEND}"
 
+pkg_pretend() {
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		if ! tc-is-gcc ; then
+			eerror "${PN} is a gcc plugin. Please emerge using gcc as CC"
+			die "use gcc"
+		fi
+	fi
+}
+
 src_prepare() {
 	default
 	sed -i 's|2.64|2.69|g' config/override.m4 || die
