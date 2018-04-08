@@ -37,6 +37,7 @@ emaint sync -r gyakovlev
 ├── dev-util/
 │   └── annobin/
 │       ├── annobin-5.2.ebuild
+│       ├── annobin-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml
 ├── media-fonts/
@@ -74,6 +75,17 @@ emaint sync -r gyakovlev
 │       ├── it87-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml
+├── www-client/
+│   └── firefox/
+│       ├── files/
+│       │   ├── icon/
+│       │   │   └── firefox.desktop
+│       │   ├── gentoo-default-prefs.js-1
+│       │   ├── gentoo-default-prefs.js-2
+│       │   └── gentoo-hwaccel-prefs.js-1
+│       ├── firefox-59.0.2-r1.ebuild
+│       ├── Manifest
+│       └── metadata.xml
 ├── x11-misc/
 │   └── slstatus/
 │       ├── Manifest
@@ -82,5 +94,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-17 directories, 30 files
+21 directories, 38 files
 ```
