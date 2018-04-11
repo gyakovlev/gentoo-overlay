@@ -16,13 +16,12 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-
 LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 
 # NOTE: gcc: depend or not depend? research it.
-DEPEND="sys-devel/gcc:="
+DEPEND=">=sys-devel/gcc-7.3.0:="
 RDEPEND="${DEPEND}"
 
 pkg_pretend() {
