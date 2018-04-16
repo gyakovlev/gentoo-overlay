@@ -40,6 +40,7 @@ emaint sync -r gyakovlev
 │       ├── annobin-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml
+├── eclass/
 ├── media-fonts/
 │   └── plex/
 │       ├── Manifest
@@ -47,6 +48,11 @@ emaint sync -r gyakovlev
 │       └── plex-1.0.1.ebuild
 ├── metadata/
 │   └── layout.conf
+├── net-firewall/
+│   └── opensnitch/
+│       ├── Manifest
+│       ├── metadata.xml
+│       └── opensnitch-9999.ebuild
 ├── net-news/
 │   └── haxor-news/
 │       ├── haxor-news-0.4.3.ebuild
@@ -94,5 +100,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-21 directories, 38 files
+24 directories, 41 files
 ```

@@ -21,7 +21,7 @@ BUILD_TARGETS="modules"
 
 pkg_setup() {
 	linux-mod_pkg_setup
-	BUILD_PARAMS="TARGET=${KV_FULL} KERNEL_BUILD=${KV_DIR}"
+	BUILD_PARAMS="TARGET=${KV_FULL} KERNEL_BUILD=${KV_OUT_DIR}"
 }
 
 src_install() {
