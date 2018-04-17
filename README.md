@@ -41,6 +41,7 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       └── metadata.xml
 ├── eclass/
+│   └── linux-mod.eclass
 ├── media-fonts/
 │   └── plex/
 │       ├── Manifest
@@ -100,5 +101,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-24 directories, 41 files
+24 directories, 42 files
 ```
