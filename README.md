@@ -70,18 +70,26 @@ emaint sync -r gyakovlev
 │   │   ├── Manifest
 │   │   ├── metadata.xml
 │   │   └── systemd-zpool-scrub-9999.ebuild
-│   └── zfs-auto-snapshot/
+│   ├── zfs-auto-snapshot/
+│   │   ├── Manifest
+│   │   ├── metadata.xml
+│   │   ├── zfs-auto-snapshot-1.2.4.ebuild
+│   │   └── zfs-auto-snapshot-9999.ebuild
+│   └── zfs-kmod/
 │       ├── Manifest
 │       ├── metadata.xml
-│       ├── zfs-auto-snapshot-1.2.4.ebuild
-│       └── zfs-auto-snapshot-9999.ebuild
+│       └── zfs-kmod-0.7.8.ebuild
 ├── sys-kernel/
-│   └── it87/
-│       ├── files/
-│       │   └── it87.conf
-│       ├── it87-9999.ebuild
+│   ├── it87/
+│   │   ├── files/
+│   │   │   └── it87.conf
+│   │   ├── it87-9999.ebuild
+│   │   ├── Manifest
+│   │   └── metadata.xml
+│   └── spl/
 │       ├── Manifest
-│       └── metadata.xml
+│       ├── metadata.xml
+│       └── spl-0.7.8.ebuild
 ├── www-client/
 │   └── firefox/
 │       ├── files/
@@ -101,5 +109,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-24 directories, 42 files
+26 directories, 48 files
 ```
