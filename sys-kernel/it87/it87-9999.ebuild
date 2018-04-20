@@ -16,12 +16,12 @@ IUSE="doc"
 
 CONFIG_CHECK="HWMON ~!CONFIG_SENSORS_IT87"
 
-MODULE_NAMES="it87(misc:${S})"
+MODULE_NAMES="it87(kernel/drivers/hwmon:${S})"
 BUILD_TARGETS="modules"
 
 pkg_setup() {
 	linux-mod_pkg_setup
-	BUILD_PARAMS="TARGET=${KV_FULL} KERNEL_BUILD=${KV_OUT_DIR}"
+	BUILD_PARAMS="TARGET=${KV_FULL} KERNEL_BUILD=${KERNEL_DIR} KBUILD_VERBOSE=1"
 }
 
 src_install() {

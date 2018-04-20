@@ -41,7 +41,7 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       └── metadata.xml
 ├── eclass/
-│   └── linux-mod.eclass
+│   └── linux-mod.eclass -> /home/ya/dev/gentoo/linux-mod.eclass/linux-mod.eclass
 ├── media-fonts/
 │   └── plex/
 │       ├── Manifest
