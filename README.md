@@ -41,7 +41,6 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       └── metadata.xml
 ├── eclass/
-│   └── linux-mod.eclass -> /home/ya/dev/gentoo/linux-mod.eclass/linux-mod.eclass
 ├── media-fonts/
 │   └── plex/
 │       ├── Manifest
@@ -70,26 +69,18 @@ emaint sync -r gyakovlev
 │   │   ├── Manifest
 │   │   ├── metadata.xml
 │   │   └── systemd-zpool-scrub-9999.ebuild
-│   ├── zfs-auto-snapshot/
-│   │   ├── Manifest
-│   │   ├── metadata.xml
-│   │   ├── zfs-auto-snapshot-1.2.4.ebuild
-│   │   └── zfs-auto-snapshot-9999.ebuild
-│   └── zfs-kmod/
+│   └── zfs-auto-snapshot/
 │       ├── Manifest
 │       ├── metadata.xml
-│       └── zfs-kmod-0.7.8.ebuild
+│       ├── zfs-auto-snapshot-1.2.4.ebuild
+│       └── zfs-auto-snapshot-9999.ebuild
 ├── sys-kernel/
-│   ├── it87/
-│   │   ├── files/
-│   │   │   └── it87.conf
-│   │   ├── it87-9999.ebuild
-│   │   ├── Manifest
-│   │   └── metadata.xml
-│   └── spl/
+│   └── it87/
+│       ├── files/
+│       │   └── it87.conf
+│       ├── it87-9999.ebuild
 │       ├── Manifest
-│       ├── metadata.xml
-│       └── spl-0.7.8.ebuild
+│       └── metadata.xml
 ├── www-client/
 │   └── firefox/
 │       ├── files/
@@ -109,5 +100,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-26 directories, 48 files
+24 directories, 41 files
 ```
