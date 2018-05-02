@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/gyakovlev/gentoo-overlay.svg?branch=master)](https://travis-ci.org/gyakovlev/gentoo-overlay)
 # gyakovlev 
 This is my personal portage overlay for [Gentoo Linux](https://gentoo.org/)
+Mirror available at [gitlab](https://gitlab.com/gyakovlev/gentoo-overlay)
 
 I do my best to maintain ebuilds according to main repo standard.  
 Most packages end up in gentoo, but some may stay here forever.  
@@ -34,6 +35,13 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```Hack
 .
+├── app-emulation/
+│   └── vagrant/
+│       ├── files/
+│       │   └── vagrant.in-r1
+│       ├── Manifest
+│       ├── metadata.xml
+│       └── vagrant-2.0.4.ebuild
 ├── dev-util/
 │   └── annobin/
 │       ├── annobin-5.3.ebuild
@@ -89,5 +97,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-20 directories, 34 files
+23 directories, 38 files
 ```
