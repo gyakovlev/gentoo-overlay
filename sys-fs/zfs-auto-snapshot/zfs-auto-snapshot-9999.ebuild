@@ -5,7 +5,7 @@ EAPI=6
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/zfsonlinux/zfs-auto-snapshot/${PN}.git"
+	EGIT_REPO_URI="https://github.com/zfsonlinux/${PN}.git"
 else
 	SRC_URI="https://github.com/zfsonlinux/${PN}/archive/upstream/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"

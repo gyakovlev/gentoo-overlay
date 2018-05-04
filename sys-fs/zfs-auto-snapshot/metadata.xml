@@ -4,7 +4,7 @@
 	<maintainer type="person">
 		<email>ya@sysdump.net</email>
 		<name>Georgy Yakovlev</name>
-	</maintainer>	
+	</maintainer>
 	<longdescription lang="en">
 		An alternative implementation of the zfs-auto-snapshot service for Linux
 		that is compatible with zfs-linux and zfs-fuse.
@@ -15,8 +15,7 @@
 		snapshots if it is installed.
 	</longdescription>
 	<use>
-		<flag name="default-exclude">Don't take any sna[shots by default.
-			Enable snapshots explicitly if needed.</flag>
+		<flag name="default-exclude">Only take snapshots if dataset has com.sun:auto-snapshot=true property set</flag>
 	</use>
 
 	<upstream>
