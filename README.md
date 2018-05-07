@@ -42,13 +42,17 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── vagrant-2.0.4.ebuild
+├── app-shells/
+│   └── loksh/
+│       ├── loksh-6.3.ebuild
+│       ├── Manifest
+│       └── metadata.xml
 ├── dev-util/
 │   └── annobin/
 │       ├── annobin-5.3.ebuild
 │       ├── annobin-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml
-├── eclass/
 ├── media-fonts/
 │   └── plex/
 │       ├── Manifest
@@ -97,5 +101,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-23 directories, 38 files
+24 directories, 41 files
 ```
