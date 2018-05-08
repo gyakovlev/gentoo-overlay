@@ -5,7 +5,7 @@ EAPI=7
 
 inherit toolchain-funcs
 
-DESCRIPTION="A Linux port of OpenBSD's ksh "
+DESCRIPTION="A Linux port of OpenBSD's ksh"
 HOMEPAGE="https://github.com/dimkr/loksh"
 SRC_URI="https://github.com/dimkr/${PN}/archive/${PV}.tar.gz"
 
