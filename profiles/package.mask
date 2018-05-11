@@ -2,10 +2,6 @@
 # WIP
 dev-util/annobin
 
-# Georgy Yakovlev <ya@sysdump.net> (01 Apr 2018)
-# WIP, masked for testing
-sys-fs/systemd-zpool-scrub
-
-# Georgy Yakovlev <ya@sysdump.net> 12 Apr 2018)
+# Georgy Yakovlev <ya@sysdump.net> (12 Apr 2018)
 # WIP
 net-firewall/opensnitch
