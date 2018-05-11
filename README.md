@@ -35,13 +35,6 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```Hack
 .
-├── app-emulation/
-│   └── vagrant/
-│       ├── files/
-│       │   └── vagrant.in-r1
-│       ├── Manifest
-│       ├── metadata.xml
-│       └── vagrant-2.0.4.ebuild
 ├── app-shells/
 │   └── loksh/
 │       ├── loksh-6.3.ebuild
@@ -91,5 +84,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-21 directories, 34 files
+18 directories, 30 files
 ```
