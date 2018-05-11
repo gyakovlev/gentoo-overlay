@@ -42,7 +42,7 @@ emaint sync -r gyakovlev
 │       └── metadata.xml
 ├── dev-util/
 │   └── annobin/
-│       ├── annobin-5.3.ebuild
+│       ├── annobin-5.7.ebuild
 │       ├── annobin-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml

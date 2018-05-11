@@ -21,6 +21,7 @@ SLOT="0"
 IUSE=""
 
 # NOTE: gcc: depend or not depend? research it.
+# TODO: slot it or do something else so it can be installed for multiple gcc versions.
 DEPEND=">=sys-devel/gcc-7.3.0:="
 RDEPEND="${DEPEND}"
 
@@ -43,7 +44,6 @@ src_prepare() {
 src_configure() {
 	# TODO static libs, pie, etc
 	local myconf=(
-		# FIXME: it's ugly.
 		--with-gcc-plugin-dir=$($(tc-getCC) -print-file-name=plugin)
 	)
 	econf "${myconf[@]}"
