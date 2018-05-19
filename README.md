@@ -35,11 +35,26 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```Hack
 .
+├── app-editors/
+│   └── sublime-text/
+│       ├── Manifest
+│       ├── metadata.xml
+│       └── sublime-text-3_p3176.ebuild
+├── app-misc/
+│   └── asciinema/
+│       ├── asciinema-2.0.1.ebuild
+│       ├── Manifest
+│       └── metadata.xml
 ├── app-shells/
 │   └── loksh/
 │       ├── loksh-6.3.ebuild
 │       ├── Manifest
 │       └── metadata.xml
+├── dev-lang/
+│   └── rust/
+│       ├── Manifest
+│       ├── metadata.xml
+│       └── rust-1.26.0.ebuild
 ├── dev-util/
 │   └── annobin/
 │       ├── annobin-5.7.ebuild
@@ -76,6 +91,11 @@ emaint sync -r gyakovlev
 │       ├── it87-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml
+├── sys-process/
+│   └── glances/
+│       ├── glances-2.11.1.ebuild
+│       ├── Manifest
+│       └── metadata.xml
 ├── x11-misc/
 │   └── slstatus/
 │       ├── Manifest
@@ -84,5 +104,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-18 directories, 30 files
+26 directories, 42 files
 ```
