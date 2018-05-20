@@ -40,11 +40,6 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── sublime-text-3_p3176.ebuild
-├── app-misc/
-│   └── asciinema/
-│       ├── asciinema-2.0.1.ebuild
-│       ├── Manifest
-│       └── metadata.xml
 ├── app-shells/
 │   └── loksh/
 │       ├── loksh-6.3.ebuild
@@ -104,5 +99,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-26 directories, 42 files
+24 directories, 39 files
 ```
