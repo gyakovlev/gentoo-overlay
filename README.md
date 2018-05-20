@@ -47,7 +47,6 @@ emaint sync -r gyakovlev
 │       └── metadata.xml
 ├── dev-util/
 │   └── annobin/
-│       ├── annobin-5.7.ebuild
 │       ├── annobin-5.8.ebuild
 │       ├── annobin-9999.ebuild
 │       ├── Manifest
@@ -95,5 +94,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-22 directories, 37 files
+22 directories, 36 files
 ```
