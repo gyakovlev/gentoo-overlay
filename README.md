@@ -55,7 +55,8 @@ emaint sync -r gyakovlev
 │   └── plex/
 │       ├── Manifest
 │       ├── metadata.xml
-│       └── plex-1.0.1.ebuild
+│       ├── plex-1.0.1.ebuild
+│       └── plex-1.0.2.ebuild
 ├── metadata/
 │   └── layout.conf
 ├── net-firewall/
@@ -94,5 +95,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-22 directories, 36 files
+22 directories, 37 files
 ```
