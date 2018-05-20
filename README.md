@@ -45,11 +45,6 @@ emaint sync -r gyakovlev
 │       ├── loksh-6.3.ebuild
 │       ├── Manifest
 │       └── metadata.xml
-├── dev-lang/
-│   └── rust/
-│       ├── Manifest
-│       ├── metadata.xml
-│       └── rust-1.26.0.ebuild
 ├── dev-util/
 │   └── annobin/
 │       ├── annobin-5.7.ebuild
@@ -99,5 +94,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-24 directories, 39 files
+22 directories, 36 files
 ```
