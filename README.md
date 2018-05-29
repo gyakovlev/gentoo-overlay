@@ -1,14 +1,24 @@
 [![Build Status](https://travis-ci.org/gyakovlev/gentoo-overlay.svg?branch=master)](https://travis-ci.org/gyakovlev/gentoo-overlay)
-# gyakovlev 
+# gyakovlev
 This is my personal portage overlay for [Gentoo Linux](https://gentoo.org/)
 
 Mirror available at [gitlab](https://gitlab.com/gyakovlev/gentoo-overlay)
 
-I do my best to maintain ebuilds according to main repo standard.  
-Most packages end up in gentoo, but some may stay here forever.  
-WIP/Unstable packages should remain masked.  
+I do my best to maintain ebuilds according to main repo standard.
+Most packages end up in gentoo, but some may stay here forever.
+WIP/Unstable packages should remain masked.
 
 ## Installation
+
+- using [eselect-repository](https://packages.gentoo.org/packages/app-eselect/eselect-repository) (the easiest)
+```sh
+eselect repository enable gyakovlev
+```
+
+- using [layman](https://packages.gentoo.org/packages/app-portage/layman)
+```sh
+layman -a gyakovlev
+```
 
 - using wget
 ```sh
@@ -20,11 +30,6 @@ wget  -O /etc/portage/repos.conf/gyakovlev.conf https://raw.githubusercontent.co
 ```sh
 curl -Lo /etc/portage/repos.conf/gyakovlev.conf --create-dirs https://raw.githubusercontent.com/gyakovlev/gentoo-overlay/master/gyakovlev.conf
 ```
-
-
-- [ ] using [eselect-repository](https://packages.gentoo.org/packages/app-eselect/eselect-repository) not yet implemented
-- [ ] using [layman](https://packages.gentoo.org/packages/app-portage/layman) not yet implemented
-
 
 ## sync the repo
 
