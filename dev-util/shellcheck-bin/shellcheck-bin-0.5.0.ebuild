@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 MY_PN=${PN/-bin/}
 DESCRIPTION="Shell script analysis tool (binary package)"
@@ -13,8 +13,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-		!dev-util/shellcheck
-		app-arch/xz-utils"
+	!dev-util/shellcheck
+	app-arch/xz-utils"
 
 RDEPEND="${DEPEND}"
 
