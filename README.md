@@ -62,13 +62,17 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── plex-1.0.2.ebuild
+├── media-sound/
+│   └── rakarrack/
+│       ├── Manifest
+│       └── rakarrack-0.6.1.ebuild
 ├── metadata/
 │   └── layout.conf
 ├── net-firewall/
-│   └── opensnitch/
+│   └── opensnitchd/
 │       ├── Manifest
 │       ├── metadata.xml
-│       └── opensnitch-9999.ebuild
+│       └── opensnitchd-20180420.ebuild
 ├── net-news/
 │   └── haxor-news/
 │       ├── haxor-news-0.4.3.ebuild
@@ -100,5 +104,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-21 directories, 37 files
+23 directories, 39 files
 ```

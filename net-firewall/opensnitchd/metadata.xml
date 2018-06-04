@@ -8,10 +8,6 @@
 	<longdescription lang="en">
 		OpenSnitch is a GNU/Linux analog of the Little Snitch application firewall.
 	</longdescription>
-	<use>
-		<flag name="daemon">Build daemon</flag>
-	</use>
-
 	<upstream>
 		<remote-id type="github">evilsocket/opensnitch</remote-id>
 	</upstream>
