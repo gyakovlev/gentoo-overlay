@@ -46,6 +46,19 @@ emaint sync -r gyakovlev
 │       ├── loksh-6.3.ebuild
 │       ├── Manifest
 │       └── metadata.xml
+├── dev-python/
+│   ├── grpcio/
+│   │   ├── files/
+│   │   │   ├── grpcio-1.12.1-allow-system-cares.patch
+│   │   │   ├── grpcio-1.12.1-allow-system-openssl.patch
+│   │   │   └── grpcio-1.12.1-allow-system-zlib.patch
+│   │   ├── grpcio-1.12.1.ebuild
+│   │   ├── Manifest
+│   │   └── metadata.xml
+│   └── unicode-slugify/
+│       ├── Manifest
+│       ├── metadata.xml
+│       └── unicode-slugify-0.1.3-r1.ebuild
 ├── dev-util/
 │   ├── annobin/
 │   │   ├── annobin-5.8.ebuild
@@ -69,7 +82,14 @@ emaint sync -r gyakovlev
 ├── metadata/
 │   └── layout.conf
 ├── net-firewall/
+│   ├── opensnitch/
+│   │   ├── Manifest
+│   │   ├── metadata.xml
+│   │   └── opensnitch-20180420.ebuild
 │   └── opensnitchd/
+│       ├── files/
+│       │   ├── opensnitchd.confd
+│       │   └── opensnitchd.initd
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── opensnitchd-20180420.ebuild
@@ -104,5 +124,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-23 directories, 39 files
+29 directories, 53 files
 ```

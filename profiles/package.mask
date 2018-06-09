@@ -3,5 +3,8 @@
 dev-util/annobin
 
 # Georgy Yakovlev <ya@sysdump.net> (12 Apr 2018)
-# WIP
+# WIP, only daemon works. GUI needs more work
 net-firewall/opensnitch
+net-firewall/opensnitchd
+dev-python/grpcio
+dev-python/unicode-slugify

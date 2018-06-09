@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+command="/usr/bin/opensnitchd"
+command_args="${OPENSNITCHD_OPTS:--log-file /var/log/opensnitchd.log \
+	-rules-path /etc/opensnitchd/rules \
+	-ui-socket unix:///run/${RC_SVCNAME}.sock}"
+pidfile="/run/${RC_SVCNAME}.pid"
+start_stop_daemon_args="--background --make-pidfile"
+
+depend() {
+	use net
+}
+
+start_pre() {
+	checkpath -q -d -m 0775 -o root /etc/"${RC_SVCNAME}"/rules
+}
