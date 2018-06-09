@@ -8,3 +8,4 @@ net-firewall/opensnitch
 net-firewall/opensnitchd
 dev-python/grpcio
 dev-python/unicode-slugify
+net-libs/grpc
