@@ -111,11 +111,6 @@ emaint sync -r gyakovlev
 │       ├── it87-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml
-├── sys-process/
-│   └── glances/
-│       ├── glances-2.11.1.ebuild
-│       ├── Manifest
-│       └── metadata.xml
 ├── x11-misc/
 │   └── slstatus/
 │       ├── Manifest
@@ -124,5 +119,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-29 directories, 53 files
+27 directories, 50 files
 ```
