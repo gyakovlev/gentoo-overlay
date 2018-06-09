@@ -45,13 +45,14 @@ PATCHES=(
 	"${FILESDIR}/0003-grpc-1.3.0-Don-t-run-ldconfig.patch"
 	"${FILESDIR}/0004-grpc-1.11.0-fix-cpp-so-version.patch"
 	"${FILESDIR}/0005-grpc-1.11.0-pkgconfig-libdir.patch"
-	"${FILESDIR}"/grpcio-1.12.1-allow-system-openssl.patch
-	"${FILESDIR}"/grpcio-1.12.1-allow-system-zlib.patch
-	"${FILESDIR}"/grpcio-1.12.1-allow-system-cares.patch
+	"${FILESDIR}/0006-grpc-1.12.1-allow-system-openssl.patch"
+	"${FILESDIR}/0007-grpc-1.12.1-allow-system-zlib.patch"
+	"${FILESDIR}/0008-grpc-1.12.1-allow-system-cares.patch"
 )
 
 src_prepare() {
 	sed -i 's@$(prefix)/lib@$(prefix)/$(INSTALL_LIBDIR)@g' Makefile || die "fix libdir"
+	#sed -i 's/-std=gnu99//' setup.py || die
 	default
 	use python && distutils-r1_src_prepare
 }

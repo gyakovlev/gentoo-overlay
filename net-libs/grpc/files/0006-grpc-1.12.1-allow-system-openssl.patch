@@ -1,3 +1,18 @@
+From 30ce693621d61efb8596503a0da212077a8c4daa Mon Sep 17 00:00:00 2001
+From: Thomas Bechtold <tbechtold@suse.com>
+Date: Thu, 24 May 2018 17:12:13 +0200
+Subject: [PATCH] Allow building the python module with system openssl
+
+When building the python module and using the new
+GRPC_PYTHON_BUILD_SYSTEM_OPENSSL env variable, the third party
+boringssl code is not compiled. Instead, the openssl shared library
+installed on the system is used during runtime.
+This is useful for distributions who don't want to include code copies
+but use shared libraries instead.
+---
+ setup.py | 17 +++++++++++++++--
+ 1 file changed, 15 insertions(+), 2 deletions(-)
+
 diff --git a/setup.py b/setup.py
 index 99d1a1c504e..3a5ed56c641 100644
 --- a/setup.py

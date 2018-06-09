@@ -101,9 +101,9 @@ emaint sync -r gyakovlev
 │       │   ├── 0003-grpc-1.3.0-Don-t-run-ldconfig.patch
 │       │   ├── 0004-grpc-1.11.0-fix-cpp-so-version.patch
 │       │   ├── 0005-grpc-1.11.0-pkgconfig-libdir.patch
-│       │   ├── grpcio-1.12.1-allow-system-cares.patch
-│       │   ├── grpcio-1.12.1-allow-system-openssl.patch
-│       │   └── grpcio-1.12.1-allow-system-zlib.patch
+│       │   ├── 0006-grpc-1.12.1-allow-system-openssl.patch
+│       │   ├── 0007-grpc-1.12.1-allow-system-zlib.patch
+│       │   └── 0008-grpc-1.12.1-allow-system-cares.patch
 │       ├── grpc-1.12.1.ebuild
 │       ├── Manifest
 │       └── metadata.xml
