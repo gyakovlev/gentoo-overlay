@@ -6,7 +6,7 @@ EAPI=6
 PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
 DISTUTILS_OPTIONAL=1
 
-inherit distutils-r1 toolchain-funcs multilib flag-o-matic
+inherit distutils-r1 flag-o-matic multilib toolchain-funcs
 
 DESCRIPTION="Modern open source high performance RPC framework"
 HOMEPAGE="http://www.grpc.io"
@@ -15,15 +15,16 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="python"
+IUSE="libressl python"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="
-	>=dev-libs/openssl-1.0.2:0=[-bindist]
 	>=dev-libs/protobuf-3:=
 	net-dns/c-ares:=
 	sys-libs/zlib:=
+	libressl? ( dev-libs/libressl:0= )
+	!libressl? ( >=dev-libs/openssl-1.0.2:0=[-bindist] )
 	python? (
 		virtual/python-enum34[${PYTHON_USEDEP}]
 		virtual/python-futures[${PYTHON_USEDEP}]
@@ -48,6 +49,7 @@ PATCHES=(
 	"${FILESDIR}/0006-grpc-1.12.1-allow-system-openssl.patch"
 	"${FILESDIR}/0007-grpc-1.12.1-allow-system-zlib.patch"
 	"${FILESDIR}/0008-grpc-1.12.1-allow-system-cares.patch"
+	"${FILESDIR}/0009-grpc-1.12.1-fix-libressl-2.7-build.patch"
 )
 
 src_prepare() {

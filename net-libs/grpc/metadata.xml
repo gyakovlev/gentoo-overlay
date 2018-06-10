@@ -2,9 +2,16 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
+		<email>ya@sysdump.net</email>
+		<name>Georgy Yakovlev</name>
+	</maintainer>
+	<maintainer type="person">
 		<email>perfinion@gentoo.org</email>
 	</maintainer>
 	<longdescription lang="en">
 		A high performance, open-source universal RPC framework
 	</longdescription>
+	<upstream>
+		<remote-id type="github">grpc/grpc</remote-id>
+	</upstream>
 </pkgmetadata>
