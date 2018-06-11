@@ -20,11 +20,10 @@ IUSE="libressl python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="
+	>=dev-libs/openssl-1.0.2:0=[-bindist]
 	>=dev-libs/protobuf-3:=
 	net-dns/c-ares:=
 	sys-libs/zlib:=
-	libressl? ( dev-libs/libressl:0= )
-	!libressl? ( >=dev-libs/openssl-1.0.2:0=[-bindist] )
 	python? (
 		virtual/python-enum34[${PYTHON_USEDEP}]
 		virtual/python-futures[${PYTHON_USEDEP}]
@@ -49,7 +48,6 @@ PATCHES=(
 	"${FILESDIR}/0006-grpc-1.12.1-allow-system-openssl.patch"
 	"${FILESDIR}/0007-grpc-1.12.1-allow-system-zlib.patch"
 	"${FILESDIR}/0008-grpc-1.12.1-allow-system-cares.patch"
-	"${FILESDIR}/0009-grpc-1.12.1-fix-libressl-2.7-build.patch"
 )
 
 src_prepare() {

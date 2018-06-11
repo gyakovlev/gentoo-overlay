@@ -103,8 +103,7 @@ emaint sync -r gyakovlev
 │       │   ├── 0005-grpc-1.11.0-pkgconfig-libdir.patch
 │       │   ├── 0006-grpc-1.12.1-allow-system-openssl.patch
 │       │   ├── 0007-grpc-1.12.1-allow-system-zlib.patch
-│       │   ├── 0008-grpc-1.12.1-allow-system-cares.patch
-│       │   └── 0009-grpc-1.12.1-fix-libressl-2.7-build.patch
+│       │   └── 0008-grpc-1.12.1-allow-system-cares.patch
 │       ├── grpc-1.12.1.ebuild
 │       ├── Manifest
 │       └── metadata.xml
@@ -134,5 +133,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-30 directories, 62 files
+30 directories, 61 files
 ```
