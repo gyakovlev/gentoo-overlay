@@ -21,7 +21,7 @@ IUSE="+daemon"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}
-	net-libs/grpc
+	net-libs/grpc[${PYTHON_USEDEP},tools]
 	dev-python/configparser
 	dev-python/pyinotify[${PYTHON_USEDEP}]
 	dev-python/unicode-slugify[${PYTHON_USEDEP}]

@@ -47,14 +47,6 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       └── metadata.xml
 ├── dev-python/
-│   ├── grpcio/
-│   │   ├── files/
-│   │   │   ├── grpcio-1.12.1-allow-system-cares.patch
-│   │   │   ├── grpcio-1.12.1-allow-system-openssl.patch
-│   │   │   └── grpcio-1.12.1-allow-system-zlib.patch
-│   │   ├── grpcio-1.12.1.ebuild
-│   │   ├── Manifest
-│   │   └── metadata.xml
 │   └── unicode-slugify/
 │       ├── Manifest
 │       ├── metadata.xml
@@ -133,5 +125,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-30 directories, 61 files
+28 directories, 55 files
 ```
