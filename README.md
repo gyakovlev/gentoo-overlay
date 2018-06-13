@@ -85,20 +85,6 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── opensnitchd-20180420.ebuild
-├── net-libs/
-│   └── grpc/
-│       ├── files/
-│       │   ├── 0001-grpc-1.11.0-Fix-cross-compiling.patch
-│       │   ├── 0002-grpc-1.3.0-Fix-unsecure-.pc-files.patch
-│       │   ├── 0003-grpc-1.3.0-Don-t-run-ldconfig.patch
-│       │   ├── 0004-grpc-1.11.0-fix-cpp-so-version.patch
-│       │   ├── 0005-grpc-1.11.0-pkgconfig-libdir.patch
-│       │   ├── 0006-grpc-1.12.1-allow-system-openssl.patch
-│       │   ├── 0007-grpc-1.12.1-allow-system-zlib.patch
-│       │   └── 0008-grpc-1.12.1-allow-system-cares.patch
-│       ├── grpc-1.12.1.ebuild
-│       ├── Manifest
-│       └── metadata.xml
 ├── net-news/
 │   └── haxor-news/
 │       ├── haxor-news-0.4.3.ebuild
@@ -125,5 +111,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-28 directories, 55 files
+25 directories, 44 files
 ```
