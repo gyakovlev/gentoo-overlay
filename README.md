@@ -46,6 +46,12 @@ emaint sync -r gyakovlev
 │       ├── loksh-6.3.ebuild
 │       ├── Manifest
 │       └── metadata.xml
+├── dev-libs/
+│   └── roc/
+│       ├── files/
+│       │   └── cmake-flags.patch
+│       ├── Manifest
+│       └── roc-1.8.0.ebuild
 ├── dev-python/
 │   └── unicode-slugify/
 │       ├── Manifest
@@ -55,6 +61,8 @@ emaint sync -r gyakovlev
 │   ├── annobin/
 │   │   ├── annobin-5.8.ebuild
 │   │   ├── annobin-5.9.ebuild
+│   │   ├── annobin-6.1.ebuild
+│   │   ├── annobin-6.5.ebuild
 │   │   ├── annobin-9999.ebuild
 │   │   ├── Manifest
 │   │   └── metadata.xml
@@ -111,5 +119,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-25 directories, 44 files
+28 directories, 49 files
 ```
