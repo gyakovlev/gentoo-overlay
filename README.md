@@ -41,11 +41,6 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```Hack
 .
-├── app-shells/
-│   └── loksh/
-│       ├── loksh-6.3.ebuild
-│       ├── Manifest
-│       └── metadata.xml
 ├── dev-libs/
 │   └── roc/
 │       ├── files/
@@ -120,5 +115,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-28 directories, 50 files
+26 directories, 47 files
 ```
