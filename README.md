@@ -59,6 +59,7 @@ emaint sync -r gyakovlev
 │   │   ├── annobin-6.1.ebuild
 │   │   ├── annobin-6.5.ebuild
 │   │   ├── annobin-7.0.ebuild
+│   │   ├── annobin-8.2.ebuild
 │   │   ├── annobin-9999.ebuild
 │   │   ├── Manifest
 │   │   └── metadata.xml
@@ -66,6 +67,8 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── shellcheck-bin-0.5.0.ebuild
+├── eclass/
+│   └── linux-mod.eclass
 ├── media-fonts/
 │   └── plex/
 │       ├── Manifest
@@ -102,8 +105,7 @@ emaint sync -r gyakovlev
 │   └── pre-commit*
 ├── sys-kernel/
 │   └── it87/
-│       ├── files/
-│       │   └── it87.conf
+│       ├── it87-1.1_pre20180613.ebuild
 │       ├── it87-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml
@@ -115,5 +117,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-26 directories, 47 files
+26 directories, 49 files
 ```
