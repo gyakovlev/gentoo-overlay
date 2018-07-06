@@ -59,7 +59,7 @@ emaint sync -r gyakovlev
 │   │   ├── annobin-6.1.ebuild
 │   │   ├── annobin-6.5.ebuild
 │   │   ├── annobin-7.0.ebuild
-│   │   ├── annobin-8.2.ebuild
+│   │   ├── annobin-8.3.ebuild
 │   │   ├── annobin-9999.ebuild
 │   │   ├── Manifest
 │   │   └── metadata.xml
