@@ -20,7 +20,6 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 
-# NOTE: gcc: depend or not depend? research it.
 # TODO: slot it or do something else so it can be installed for multiple gcc versions.
 DEPEND="
 	>=sys-devel/gcc-7.3.0:=
@@ -39,13 +38,10 @@ pkg_pretend() {
 
 src_prepare() {
 	default
-	# FIXME: tighten sed, or use patch. Or find another way around macro version check
-	sed -i 's|2.64|2.69|g' config/override.m4 || die
 	eautoreconf
 }
 
 src_configure() {
-	# TODO annocheck, static libs, pie, etc
 	local myconf=(
 		--with-gcc-plugin-dir=$($(tc-getCC) -print-file-name=plugin)
 	)

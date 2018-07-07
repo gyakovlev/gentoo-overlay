@@ -54,12 +54,8 @@ emaint sync -r gyakovlev
 │       └── unicode-slugify-0.1.3-r1.ebuild
 ├── dev-util/
 │   ├── annobin/
-│   │   ├── annobin-5.8.ebuild
 │   │   ├── annobin-5.9.ebuild
-│   │   ├── annobin-6.1.ebuild
-│   │   ├── annobin-6.5.ebuild
-│   │   ├── annobin-7.0.ebuild
-│   │   ├── annobin-8.3.ebuild
+│   │   ├── annobin-8.4.ebuild
 │   │   ├── annobin-9999.ebuild
 │   │   ├── Manifest
 │   │   └── metadata.xml
@@ -114,8 +110,17 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── slstatus-9999.ebuild
+├── x11-themes/
+│   ├── arc-kde/
+│   │   ├── arc-kde-20180614.ebuild
+│   │   ├── Manifest
+│   │   └── metadata.xml
+│   └── papirus-icon-theme/
+│       ├── Manifest
+│       ├── metadata.xml
+│       └── papirus-icon-theme-20180601.ebuild
 ├── gyakovlev.conf
 └── README.md
 
-26 directories, 49 files
+29 directories, 51 files
 ```

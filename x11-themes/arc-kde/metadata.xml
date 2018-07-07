@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gyakovlev@gentoo.org</email>
+		<name>Georgy Yakovlev</name>
+	</maintainer>	
+	<longdescription lang="en">
+		Port of the popular GTK theme Arc for Plasma 5 desktop with a few additions and extras
+	</longdescription>
+</pkgmetadata>
