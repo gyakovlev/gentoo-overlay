@@ -41,6 +41,12 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```Hack
 .
+├── app-admin/
+│   └── tallow/
+│       ├── Manifest
+│       ├── metadata.xml
+│       ├── tallow-11.ebuild
+│       └── tallow-9999.ebuild
 ├── dev-libs/
 │   └── roc/
 │       ├── files/
@@ -101,8 +107,13 @@ emaint sync -r gyakovlev
 │   └── pre-commit*
 ├── sys-kernel/
 │   └── it87/
-│       ├── it87-1.1_pre20180613.ebuild
+│       ├── it87-1.1_pre20180613-r1.ebuild
 │       ├── it87-9999.ebuild
+│       ├── Manifest
+│       └── metadata.xml
+├── x11-libs/
+│   └── appmenu-gtk-module/
+│       ├── appmenu-gtk-module-0.6.1.ebuild
 │       ├── Manifest
 │       └── metadata.xml
 ├── x11-misc/
@@ -118,9 +129,10 @@ emaint sync -r gyakovlev
 │   └── papirus-icon-theme/
 │       ├── Manifest
 │       ├── metadata.xml
-│       └── papirus-icon-theme-20180601.ebuild
+│       ├── papirus-icon-theme-20180601.ebuild
+│       └── papirus-icon-theme-20180720.ebuild
 ├── gyakovlev.conf
 └── README.md
 
-29 directories, 51 files
+33 directories, 59 files
 ```
