@@ -114,6 +114,7 @@ emaint sync -r gyakovlev
 ├── x11-libs/
 │   └── appmenu-gtk-module/
 │       ├── appmenu-gtk-module-0.6.1.ebuild
+│       ├── appmenu-gtk-module-0.6.94.ebuild
 │       ├── Manifest
 │       └── metadata.xml
 ├── x11-misc/
@@ -134,5 +135,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-33 directories, 59 files
+33 directories, 60 files
 ```
