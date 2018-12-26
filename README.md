@@ -41,23 +41,6 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```Hack
 .
-├── app-admin/
-│   └── tallow/
-│       ├── Manifest
-│       ├── metadata.xml
-│       ├── tallow-11.ebuild
-│       └── tallow-9999.ebuild
-├── dev-libs/
-│   └── roc/
-│       ├── files/
-│       │   └── cmake-flags.patch
-│       ├── Manifest
-│       └── roc-1.8.0.ebuild
-├── dev-python/
-│   └── unicode-slugify/
-│       ├── Manifest
-│       ├── metadata.xml
-│       └── unicode-slugify-0.1.3-r1.ebuild
 ├── dev-util/
 │   ├── annobin/
 │   │   ├── annobin-5.9.ebuild
@@ -70,16 +53,11 @@ emaint sync -r gyakovlev
 │       ├── metadata.xml
 │       └── shellcheck-bin-0.5.0.ebuild
 ├── eclass/
-│   └── linux-mod.eclass
 ├── media-fonts/
 │   └── plex/
 │       ├── Manifest
 │       ├── metadata.xml
 │       └── plex-1.0.2.ebuild
-├── media-sound/
-│   └── rakarrack/
-│       ├── Manifest
-│       └── rakarrack-0.6.1.ebuild
 ├── metadata/
 │   └── layout.conf
 ├── net-firewall/
@@ -111,12 +89,6 @@ emaint sync -r gyakovlev
 │       ├── it87-9999.ebuild
 │       ├── Manifest
 │       └── metadata.xml
-├── x11-libs/
-│   └── appmenu-gtk-module/
-│       ├── appmenu-gtk-module-0.6.1.ebuild
-│       ├── appmenu-gtk-module-0.6.94.ebuild
-│       ├── Manifest
-│       └── metadata.xml
 ├── x11-misc/
 │   └── slstatus/
 │       ├── Manifest
@@ -131,9 +103,10 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       ├── metadata.xml
 │       ├── papirus-icon-theme-20180601.ebuild
-│       └── papirus-icon-theme-20180720.ebuild
+│       ├── papirus-icon-theme-20180720.ebuild
+│       └── papirus-icon-theme-20181120.ebuild
 ├── gyakovlev.conf
 └── README.md
 
-33 directories, 60 files
+22 directories, 44 files
 ```
