@@ -102,11 +102,9 @@ emaint sync -r gyakovlev
 │   └── papirus-icon-theme/
 │       ├── Manifest
 │       ├── metadata.xml
-│       ├── papirus-icon-theme-20180601.ebuild
-│       ├── papirus-icon-theme-20180720.ebuild
 │       └── papirus-icon-theme-20181120.ebuild
 ├── gyakovlev.conf
 └── README.md
 
-22 directories, 44 files
+22 directories, 42 files
 ```
