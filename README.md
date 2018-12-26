@@ -42,16 +42,12 @@ emaint sync -r gyakovlev
 ```Hack
 .
 ├── dev-util/
-│   ├── annobin/
-│   │   ├── annobin-5.9.ebuild
-│   │   ├── annobin-8.4.ebuild
-│   │   ├── annobin-9999.ebuild
-│   │   ├── Manifest
-│   │   └── metadata.xml
-│   └── shellcheck-bin/
+│   └── annobin/
+│       ├── annobin-5.9.ebuild
+│       ├── annobin-8.4.ebuild
+│       ├── annobin-9999.ebuild
 │       ├── Manifest
-│       ├── metadata.xml
-│       └── shellcheck-bin-0.5.0.ebuild
+│       └── metadata.xml
 ├── eclass/
 ├── media-fonts/
 │   └── plex/
@@ -60,18 +56,6 @@ emaint sync -r gyakovlev
 │       └── plex-1.0.2.ebuild
 ├── metadata/
 │   └── layout.conf
-├── net-firewall/
-│   ├── opensnitch/
-│   │   ├── Manifest
-│   │   ├── metadata.xml
-│   │   └── opensnitch-20180420.ebuild
-│   └── opensnitchd/
-│       ├── files/
-│       │   ├── opensnitchd.confd
-│       │   └── opensnitchd.initd
-│       ├── Manifest
-│       ├── metadata.xml
-│       └── opensnitchd-20180420.ebuild
 ├── net-news/
 │   └── haxor-news/
 │       ├── haxor-news-0.4.3.ebuild
@@ -106,5 +90,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-22 directories, 42 files
+17 directories, 31 files
 ```

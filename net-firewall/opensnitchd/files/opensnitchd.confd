@@ -1,9 +1,0 @@
-# you can run opensnitchd on different hosts and control
-# using single ui
-# pass -ui-socket "x.x.x.x:50051"
-# (where x.x.x.x is the IP of the computer running the UI service).
-# and use corresponding --socket  option to run the ui
-
-#OPENSNITCHD_OPTS="-log-file /var/log/opensnitchd.log \
-#	-rules-path /etc/opensnitchd/rules \
-#	-ui-socket unix:///run/${RC_SVCNAME}.sock"
