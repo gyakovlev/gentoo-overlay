@@ -28,11 +28,6 @@ emaint sync -r gyakovlev
 ```Hack
 .
 ├── eclass/
-├── media-fonts/
-│   └── plex/
-│       ├── Manifest
-│       ├── metadata.xml
-│       └── plex-1.0.2.ebuild
 ├── metadata/
 │   └── layout.conf
 ├── net-news/
@@ -69,5 +64,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-15 directories, 26 files
+13 directories, 23 files
 ```
