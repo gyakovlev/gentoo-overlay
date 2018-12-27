@@ -27,13 +27,6 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```Hack
 .
-├── dev-util/
-│   └── annobin/
-│       ├── annobin-5.9.ebuild
-│       ├── annobin-8.4.ebuild
-│       ├── annobin-9999.ebuild
-│       ├── Manifest
-│       └── metadata.xml
 ├── eclass/
 ├── media-fonts/
 │   └── plex/
@@ -76,5 +69,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-17 directories, 31 files
+15 directories, 26 files
 ```
