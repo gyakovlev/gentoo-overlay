@@ -51,6 +51,7 @@ emaint sync -r gyakovlev
 │   └── slstatus/
 │       ├── Manifest
 │       ├── metadata.xml
+│       ├── slstatus-0_pre20180708.ebuild
 │       └── slstatus-9999.ebuild
 ├── x11-themes/
 │   ├── arc-kde/
@@ -64,5 +65,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-13 directories, 23 files
+13 directories, 24 files
 ```
