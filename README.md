@@ -27,11 +27,6 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```Hack
 .
-├── app-emulation/
-│   └── looking-glass/
-│       ├── looking-glass-1_alpha12.ebuild
-│       ├── Manifest
-│       └── metadata.xml
 ├── eclass/
 ├── metadata/
 │   └── layout.conf
@@ -46,15 +41,6 @@ emaint sync -r gyakovlev
 │   └── repo_name
 ├── scripts/
 │   └── pre-commit*
-├── sys-fs/
-│   ├── zfs/
-│   │   ├── files/
-│   │   │   └── bash-completion-sudo.patch
-│   │   ├── metadata.xml
-│   │   └── zfs-9999.ebuild
-│   └── zfs-kmod/
-│       ├── metadata.xml
-│       └── zfs-kmod-9999.ebuild
 ├── sys-kernel/
 │   └── it87/
 │       ├── it87-1.1_pre20180613-r1.ebuild
@@ -80,5 +66,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-20 directories, 32 files
+14 directories, 24 files
 ```
