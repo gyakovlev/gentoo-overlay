@@ -42,6 +42,11 @@ emaint sync -r gyakovlev
 ├── scripts/
 │   └── pre-commit*
 ├── sys-kernel/
+│   ├── asus-wmi-sensors/
+│   │   ├── asus-wmi-sensors-0_pre20190611.ebuild
+│   │   ├── asus-wmi-sensors-9999.ebuild
+│   │   ├── Manifest
+│   │   └── metadata.xml
 │   └── it87/
 │       ├── it87-1.1_pre20180613-r1.ebuild
 │       ├── it87-9999.ebuild
@@ -65,5 +70,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-14 directories, 23 files
+15 directories, 27 files
 ```
