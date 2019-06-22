@@ -48,11 +48,6 @@ emaint sync -r gyakovlev
 │       ├── Manifest
 │       └── metadata.xml
 ├── x11-drivers/
-├── x11-misc/
-│   └── slstatus/
-│       ├── metadata.xml
-│       ├── slstatus-0_pre20180708.ebuild
-│       └── slstatus-9999.ebuild
 ├── x11-themes/
 │   ├── arc-kde/
 │   │   ├── arc-kde-20180614.ebuild
@@ -65,5 +60,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-14 directories, 23 files
+12 directories, 20 files
 ```
