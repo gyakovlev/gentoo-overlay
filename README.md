@@ -30,12 +30,6 @@ emaint sync -r gyakovlev
 ├── eclass/
 ├── metadata/
 │   └── layout.conf
-├── net-news/
-│   └── haxor-news/
-│       ├── haxor-news-0.4.3.ebuild
-│       ├── haxor-news-9999.ebuild
-│       ├── Manifest
-│       └── metadata.xml
 ├── profiles/
 │   ├── package.mask
 │   └── repo_name
@@ -60,5 +54,5 @@ emaint sync -r gyakovlev
 ├── gyakovlev.conf
 └── README.md
 
-12 directories, 20 files
+10 directories, 16 files
 ```
