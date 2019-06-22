@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit linux-mod
 
@@ -18,12 +18,12 @@ fi
 DESCRIPTION="ASUS WMI Sensor driver"
 HOMEPAGE="https://github.com/electrified/asus-wmi-sensors"
 
-LICENSE="GPL-2+"
+LICENSE="GPL-2"
 SLOT="0"
-IUSE="doc"
+IUSE=""
 
 CONFIG_CHECK="ACPI_WMI HWMON"
-MODULE_NAMES="asus-wmi-sensors"
+MODULE_NAMES="asus-wmi-sensors(misc:${S})"
 BUILD_TARGETS="modules"
 
 pkg_setup() {
