@@ -14,17 +14,18 @@ SLOT="0"
 KEYWORDS="~ppc64"
 IUSE=""
 
-DEPEND=""
-RDEPEND="${DEPEND}"
-BDEPEND=""
-
 src_prepare() {
-	sed -i 's/ranges_append_flag(RANGES_HAS_WERROR -Werror)//' cmake/ranges_flags.cmake || die
+	sed -i -e '/Werror/d' -e '/Wextra/d' -e '/Wall/d' cmake/ranges_flags.cmake || die
 	cmake_src_prepare
 }
 
 src_configure() {
 	mycmakeargs=(
+		-DRANGE_V3_EXAMPLES=OFF
+		-DRANGE_V3_HEADER_CHECKS=OFF
+		-DRANGE_V3_PERF=OFF
+		-DRANGE_V3_TESTS=OFF
+		-DRANGES_BUILD_CALENDAR_EXAMPLE=OFF
 		-DRANGES_NATIVE=OFF
 	)
 	cmake_src_configure
