@@ -1,7 +1,7 @@
 From af5f8d19f0fdded987beee4568f02cc8dcbd20f4 Mon Sep 17 00:00:00 2001
 From: John Zimmermann <johnz@posteo.net>
 Date: Thu, 2 Jan 2020 12:58:45 +0100
-Subject: [PATCH] PowerPC support
+Subject: [PATCH] PPC config
 
 ---
  base/build_config.h | 4 ++--
