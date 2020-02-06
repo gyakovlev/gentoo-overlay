@@ -13,27 +13,37 @@ SRC_URI="https://gitlab.com/vala-panel-project/vala-panel-appmenu/uploads/${EGIT
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~ppc64"
-IUSE="test"
+IUSE=""
 
-DEPEND="dev-libs/glib
+RDEPEND="
+	dev-libs/glib
 	x11-libs/gtk+:2
 	x11-libs/gtk+:3
 "
 
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-util/gtk-doc
+"
+
 BDEPEND=""
 
 #REQUIRED_USE="|| ( gtk gtk3 )"
 
 src_configure() {
-	local -a gtks=()
+	#local -a gtks=()
 	#use gtk  && gtks+=( 2 )
 	#use gtk3 && gtks+=( 3 )
-	local emesonargs=(
+	#local emesonargs=(
 	#	-Dgtk="$(IFS=,; echo "${gtks[*]}")"
-		$(meson_use test tests)
-	)
+	#)
 	meson_src_configure
+}
+
+src_install() {
+	meson_src_install
+	rm -r "${ED}/usr/share/${PN}/doc" || die
+	einstalldocs
+	docompress /usr/share/doc/"${PF}"
 }
 
 pkg_postinst() {
