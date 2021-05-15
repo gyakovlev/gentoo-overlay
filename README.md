@@ -27,7 +27,6 @@ emaint sync -r gyakovlev
 [comment]: # (text below will be generated using pre-commit hook. this line is not visible when rendered.)
 ```Hack
 .
-├── eclass/
 ├── metadata/
 │   └── layout.conf
 ├── profiles/
@@ -35,24 +34,8 @@ emaint sync -r gyakovlev
 │   └── repo_name
 ├── scripts/
 │   └── pre-commit*
-├── sys-kernel/
-│   └── asus-wmi-sensors/
-│       ├── asus-wmi-sensors-0_pre20190611.ebuild
-│       ├── asus-wmi-sensors-9999.ebuild
-│       ├── Manifest
-│       └── metadata.xml
-├── x11-drivers/
-├── x11-themes/
-│   ├── arc-kde/
-│   │   ├── arc-kde-20180614.ebuild
-│   │   ├── Manifest
-│   │   └── metadata.xml
-│   └── papirus-icon-theme/
-│       ├── Manifest
-│       ├── metadata.xml
-│       └── papirus-icon-theme-20190521.ebuild
 ├── gyakovlev.conf
 └── README.md
 
-10 directories, 16 files
+3 directories, 6 files
 ```
