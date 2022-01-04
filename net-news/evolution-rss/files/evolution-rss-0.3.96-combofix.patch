@@ -1,0 +1,187 @@
+From 0bbf522d0e096443df6387b588d7179a4a99ddb3 Mon Sep 17 00:00:00 2001
+From: Milan Crha <mcrha@redhat.com>
+Date: Tue, 5 May 2020 09:36:53 +0200
+Subject: [PATCH] Adapt to Evolution 3.37.2 EContentEditor changes
+
+---
+ src/rss.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/rss.c b/src/rss.c
+index 4470336..3b2cf3b 100644
+--- a/src/rss.c
++++ b/src/rss.c
+@@ -1348,8 +1348,12 @@ org_gnome_evolution_presend (EPlugin *ep, EMEventTargetComposer *t)
+ 
+ 	editor = e_msg_composer_get_editor (t->composer);
+ #if EVOLUTION_VERSION >= 32190
++#if EVOLUTION_VERSION >= 33702
++	text = g_strdup (e_content_editor_util_get_content_data (e_msg_composer_get_content_hash (t->composer), E_CONTENT_EDITOR_GET_TO_SEND_HTML));
++#else
+ 	cnt_editor = e_html_editor_get_content_editor (editor);
+ 	text = e_content_editor_get_content (cnt_editor, E_CONTENT_EDITOR_GET_TEXT_HTML, NULL, NULL);
++#endif
+ #else
+ 	view = e_html_editor_get_view (editor);
+ #if EVOLUTION_VERSION >= 31390
+-- 
+
+
+https://gitlab.gnome.org/GNOME/evolution-rss/-/commit/b23134c52c2f2ba1f8fb1070c5b4609d846a7b3e
+diff --git a/src/rss-cache.c b/src/rss-cache.c
+index 65f926d37d134ff2d724724319bbcfd5bac1a8d4..e9a31e666ebc0900d59e020fdf0821d25dede31c 100644
+--- a/src/rss-cache.c
++++ b/src/rss-cache.c
+@@ -63,10 +63,6 @@ rss_cache_init(void)
+ 	if (!cache)
+ 		return;
+ 
+-	// expire in a month max
+-	// and one week if not accessed sooner
+-	camel_data_cache_set_expire_age(cache, 24*60*60*30);
+-	camel_data_cache_set_expire_access(cache, 24*60*60*7);
+ }
+ 
+ char *
+--
+
+From 11a68a6c5ab8deae0e28b06d33385c22e8aab8b2 Mon Sep 17 00:00:00 2001
+From: Milan Crha <mcrha@redhat.com>
+Date: Tue, 5 May 2020 09:48:44 +0200
+Subject: [PATCH] rss_ep_need_proxy_http: Fix an 'if' to properly enclose its
+ commands into a block
+
+Otherwise the function always returns TRUE, regardless proxy need,
+and eventually leaks memory.
+---
+ src/rss-evo-common.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/rss-evo-common.c b/src/rss-evo-common.c
+index 269565b..537ebce 100644
+--- a/src/rss-evo-common.c
++++ b/src/rss-evo-common.c
+@@ -273,9 +273,10 @@ rss_ep_need_proxy_http (EProxy* proxy, const gchar * host, SoupAddress *addr)
+ 	so_addr = soup_address_get_sockaddr (myaddr, &addr_len);
+ #endif
+ 
+-	if (!so_addr)
++	if (!so_addr) {
+ 		g_object_unref (myaddr);
+ 		return TRUE;
++	}
+ 
+ 	if (so_addr->sa_family == AF_INET) {
+ 		struct in_addr in, *mask, *addr_in;
+-- 
+
+From 680fa6596793dc53368e0b8ebf90eddc3a987e42 Mon Sep 17 00:00:00 2001
+From: Milan Crha <mcrha@redhat.com>
+Date: Tue, 5 May 2020 09:53:09 +0200
+Subject: [PATCH] Disable cast-function-type compiler warning and fix other
+ warnings
+
+---
+ configure.ac             |  1 +
+ src/misc.c               |  4 ++--
+ src/rss-config-factory.c | 20 ++++++++++----------
+ 3 files changed, 13 insertions(+), 12 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 0c5442d..b373c6b 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -21,6 +21,7 @@ AS_COMPILER_FLAGS(WARNING_FLAGS,
+ 	-Wno-missing-field-initializers
+ 	-Wno-sign-compare
+ 	-Wno-unused-parameter
++	-Wno-cast-function-type
+ 	-Wdeclaration-after-statement
+ 	-Werror-implicit-function-declaration
+ 	-Wformat-security -Winit-self
+diff --git a/src/misc.c b/src/misc.c
+index 2c434c7..6e60cc8 100644
+--- a/src/misc.c
++++ b/src/misc.c
+@@ -502,9 +502,9 @@ static const char tz_months [][4] = {
+ 	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+ };
+ 
+-static const char tz_days [][4] = {
++/*static const char tz_days [][4] = {
+ 	"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
+-};
++};*/
+ 
+ gboolean
+ is_rfc822(char *in)
+diff --git a/src/rss-config-factory.c b/src/rss-config-factory.c
+index 24f92ce..6767b74 100644
+--- a/src/rss-config-factory.c
++++ b/src/rss-config-factory.c
+@@ -1237,22 +1237,22 @@ rss_delete_rec (CamelStore *store, CamelFolderInfo *fi, GError **error)
+ #endif
+ 			return;
+ 
+-			uids = camel_folder_get_uids (folder);
++		uids = camel_folder_get_uids (folder);
+ 
+-			camel_folder_freeze (folder);
+-			for (i = 0; i < uids->len; i++)
+-				camel_folder_delete_message (
+-					folder,
+-					uids->pdata[i]);
++		camel_folder_freeze (folder);
++		for (i = 0; i < uids->len; i++)
++			camel_folder_delete_message (
++				folder,
++				uids->pdata[i]);
+ 
+-			camel_folder_free_uids (folder, uids);
++		camel_folder_free_uids (folder, uids);
+ 
+ #if (DATASERVER_VERSION >= 2033001)
+-			camel_folder_synchronize_sync (folder, TRUE, NULL, NULL);
++		camel_folder_synchronize_sync (folder, TRUE, NULL, NULL);
+ #else
+-			camel_folder_sync (folder, TRUE, NULL);
++		camel_folder_sync (folder, TRUE, NULL);
+ #endif
+-			camel_folder_thaw (folder);
++		camel_folder_thaw (folder);
+ 
+ 		d("do camel_store_delete_folder()\n");
+ 
+--
+
+From a21a188c3da937429af028345e77f377094970fb Mon Sep 17 00:00:00 2001
+From: Milan Crha <mcrha@redhat.com>
+Date: Tue, 5 May 2020 09:57:19 +0200
+Subject: [PATCH] I#2 - Memory leak in create_folder_feeds
+
+Closes https://gitlab.gnome.org/GNOME/evolution-rss/-/issues/2
+---
+ src/rss-config-factory.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/src/rss-config-factory.c b/src/rss-config-factory.c
+index 6767b74..56e35c1 100644
+--- a/src/rss-config-factory.c
++++ b/src/rss-config-factory.c
+@@ -2760,13 +2760,12 @@ create_folder_feeds(gchar *folder)
+ 	gchar *tf;
+ 	GList *names;
+ 	gchar *mf = get_main_folder();
+-	GHashTable *nhash = g_hash_table_new(
+-				g_str_hash,
+-				g_str_equal);
+ 	strbuf = NULL;
+ 	if (folder && strcmp(folder, mf))
+ 		tf = extract_main_folder(folder);
+ 	else {
++		GHashTable *nhash = g_hash_table_new(g_str_hash, g_str_equal);
++
+ 		tf = g_strdup(".");
+ 		//get list of "unfoldered" feeds - silly approach
+ 		names = g_hash_table_get_keys(rf->hrname);
+--
