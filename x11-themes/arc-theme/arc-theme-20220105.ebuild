@@ -16,6 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="cinnamon gnome-shell +gtk2 +gtk3 +gtk4 mate +transparency xfce"
 
+GLIB_DEPEND="dev-libs/glib"
 SASSC_DEPEND="dev-lang/sassc"
 
 # Supports various GTK, GNOME Shell, and Cinnamon versions and uses
@@ -29,12 +30,18 @@ BDEPEND="
 		gnome-extra/cinnamon
 	)
 	gnome-shell? (
+		${GLIB_DEPEND}
 		${SASSC_DEPEND}
-		dev-libs/glib
 		>=gnome-base/gnome-shell-3.28
 	)
-	gtk3? (	${SASSC_DEPEND}	)
-	gtk4? (	${SASSC_DEPEND}	)
+	gtk3? (
+		${GLIB_DEPEND}
+		${SASSC_DEPEND}
+	)
+	gtk4? (
+		${GLIB_DEPEND}
+		${SASSC_DEPEND}
+	)
 "
 
 # gnome-themes-standard is only needed by GTK+2 for the Adwaita
@@ -47,15 +54,18 @@ RDEPEND="
 "
 
 src_configure() {
+	# Cinnamon still uses metacity themes for its window manager.
+	# so we enable metacity theme too if USE=cinnamon
+	# but only enable metacity if USE=mate
 	local themes=$(
 		printf "%s," \
-		$(usev cinnamon) \
+		$(usev cinnamon "cinnamon metacity") \
 		$(usev gnome-shell) \
 		$(usev gtk2) \
 		$(usev gtk3) \
 		$(usev gtk4) \
-		$(usex mate metacity "") \
-		$(usex xfce xfwm "")
+		$(! use cinnamon && usev mate metacity) \
+		$(usev xfce xfwm)
 	)
 
 	local emesonargs=(
