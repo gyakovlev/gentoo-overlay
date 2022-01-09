@@ -16,35 +16,25 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="cinnamon gnome-shell +gtk2 +gtk3 +gtk4 mate +transparency xfce"
 
-SASSC_DEPEND="
-	dev-lang/sassc
-"
+SASSC_DEPEND="dev-lang/sassc"
 
-# Supports various GTK+3, GNOME Shell, and Cinnamon versions and uses
-# pkg-config to determine which set of files to build. Updates will
-# therefore break existing installs but there's no way around this. At
-# least GTK+3 is unlikely to see a release beyond 3.24.
+# Supports various GTK, GNOME Shell, and Cinnamon versions and uses
+# --version option for gnome-shell and cinnamon to determine which set of files to build.
+# Updates will therefore break existing installs but there's no way around this.
 BDEPEND="
 	${PYTHON_DEPS}
 	>=dev-util/meson-0.56.0
-	dev-libs/glib
 	cinnamon? (
 		${SASSC_DEPEND}
 		gnome-extra/cinnamon
 	)
 	gnome-shell? (
 		${SASSC_DEPEND}
+		dev-libs/glib
 		>=gnome-base/gnome-shell-3.28
 	)
-	gtk3? (
-		${SASSC_DEPEND}
-		virtual/pkgconfig
-		=x11-libs/gtk+-3.24*:3
-	)
-	gtk4? (
-		${SASSC_DEPEND}
-		gui-libs/gtk:4
-	)
+	gtk3? (	${SASSC_DEPEND}	)
+	gtk4? (	${SASSC_DEPEND}	)
 "
 
 # gnome-themes-standard is only needed by GTK+2 for the Adwaita
@@ -69,6 +59,9 @@ src_configure() {
 	)
 
 	local emesonargs=(
+		# 4.0 dropped in Gentoo, 4.2 works with 4.6
+		# if we change that to allow auto-detection, a pkg-config dep will be required.
+		-Dgtk4_version=4.2
 		-Dthemes="${themes%,}"
 		$(meson_use gnome-shell gnome_shell_gresource)
 		$(meson_use transparency)
