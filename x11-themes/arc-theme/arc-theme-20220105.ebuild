@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit meson
+PYTHON_COMPAT=( python3_{8..10} )
+
+inherit meson python-any-r1
 
 DESCRIPTION="A flat theme with transparent elements for GTK 2/3/4 and GNOME Shell"
 HOMEPAGE="https://github.com/jnsh/arc-theme"
@@ -23,6 +25,7 @@ SASSC_DEPEND="
 # therefore break existing installs but there's no way around this. At
 # least GTK+3 is unlikely to see a release beyond 3.24.
 BDEPEND="
+	${PYTHON_DEPS}
 	>=dev-util/meson-0.56.0
 	dev-libs/glib
 	cinnamon? (
@@ -31,7 +34,7 @@ BDEPEND="
 	)
 	gnome-shell? (
 		${SASSC_DEPEND}
-		>=gnome-base/gnome-shell-3.18
+		>=gnome-base/gnome-shell-3.28
 	)
 	gtk3? (
 		${SASSC_DEPEND}
@@ -40,6 +43,7 @@ BDEPEND="
 	)
 	gtk4? (
 		${SASSC_DEPEND}
+		gui-libs/gtk:4
 	)
 "
 
@@ -66,7 +70,7 @@ src_configure() {
 
 	local emesonargs=(
 		-Dthemes="${themes%,}"
-		-Dgnome_shell_gresource=false
+		$(meson_use gnome-shell gnome_shell_gresource)
 		$(meson_use transparency)
 	)
 
