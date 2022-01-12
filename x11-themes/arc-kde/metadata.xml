@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gyakovlev@gentoo.org</email>
+		<name>Georgy Yakovlev</name>
+	</maintainer>
+	<stabilize-allarches/>
+	<use>
+		<flag name="aurorae">Install aurorae themes</flag>
+		<flag name="color-schemes">Install Arc plasma color-schemes</flag>
+		<flag name="konsole">Install konsole color themes</flag>
+		<flag name="konversation">Install konversation themes</flag>
+		<flag name="kvantum">Install <pkg>x11-themes/kvantum</pkg> themes</flag>
+		<flag name="plasma">Install plasma style</flag>
+		<flag name="wallpapers">Install wallpapers</flag>
+		<flag name="yakuake">Install yakuake titlebar skin</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">PapirusDevelopmentTeam/arc-kde</remote-id>
+	</upstream>
+</pkgmetadata>
