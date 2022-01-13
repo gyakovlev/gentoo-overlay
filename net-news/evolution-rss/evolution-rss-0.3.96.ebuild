@@ -16,7 +16,7 @@ SRC_URI="https://gitlab.gnome.org/GNOME/${PN}/-/archive/${MY_P}/${PN}-${MY_P}.ta
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~ppc64"
+KEYWORDS="~arm64 ~ppc64"
 IUSE="nls"
 
 DEPEND="
